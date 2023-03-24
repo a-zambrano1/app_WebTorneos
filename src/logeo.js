@@ -12,6 +12,8 @@ import {
 import { useState } from "react";
 import SweetAlert from "sweetalert";
 import { Navigate,useNavigate } from "react-router-dom";
+import './styles.css'
+
 
 
 export default (props) => {
@@ -109,15 +111,20 @@ export default (props) => {
 
   return (
     <div>
-      <h1>Bienvenido, por favor, inicie sesión.</h1>
-    <section className="login">
-      <h3>Iniciar sesión</h3>
-      <div className="contenedor contenidos-log">
+      <div>
+        <span>Regresar</span>
+      </div>
+      <div className='titulo-login'>
+        <h1>Rap Rumble</h1>
+        <span>Ingreso de Usuario</span>
+      </div>
+    <section>
+      <div className="cuadro-informacion">
         <input
           className="controll"
           type="email"
           name="email"
-          placeholder="Usuario"
+          placeholder="Ingrear Correo"
           id="email"
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -126,19 +133,29 @@ export default (props) => {
           type="password"
           name="password"
           minLength="8"
-          placeholder="Contraseña"
+          placeholder="Ingrear Contraseña"
           id="password"
           onChange={(e) => setPassword(e.target.value)}
         />
+        <div className='texto-olvidar-password'>
+          <span>Olvidaste tu contraseña</span>
+        </div>
         <input
           onClick={Ingreso}
-          className="boton"
+          className="boton-ingresar"
           type="submit"
           name=""
-          value="Iniciar Sesión"
+          value="Ingresar"
         />
-        <button title="butonGoogle" className="correo" onClick={ingresoGoogle}>
-        </button>
+        <div className='ingreso-correo'>
+          <span>O iniciar sesión con</span>
+          <button title="butonGoogle" img='./media/google-logo.png' className="boton-google" onClick={ingresoGoogle}>
+          </button>
+          <div className='crear-cuenta'>
+            <span>¿No estás registrado aún?</span>
+            <span>Crear Cuenta</span>
+          </div>
+        </div>
       </div>
     </section>
     </div>

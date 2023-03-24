@@ -1,0 +1,65 @@
+.debug{
+    border: 1px solid red;
+}
+
+.titulo-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo-app{
+        
+}
+
+
+
+.cuadro-informacion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+input{
+    border-radius: 5%;
+    width: 290px;
+    height: 50px;
+    border: 1px solid gray ;
+    margin: 10px;
+}
+
+.boton-ingresar{
+    background-color: #2D8F1D;
+    text-align: center;
+}
+
+.texto-olvidar-password{
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    
+}
+
+.ingreso-correo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 100;
+}
+
+.boton-google{
+    width: 75px;
+    height: 48px;
+    border-radius: 8px;
+    background-color: #C5C9D0E5;
+}
+
+.crear-cuenta{
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
