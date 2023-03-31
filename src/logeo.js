@@ -98,7 +98,7 @@ export default (props) => {
         const token = credential.accessToken;
         const user = result.user;
         state.isAdmin = false;
-        navigate('/welcome');
+        navigate('/bienvenida');
       })
       .catch((error) => {
         const errorCode = error.code;
