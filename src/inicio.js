@@ -1,14 +1,17 @@
 import React from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
+import micro from './media/google-logo.png'
 import './styles.css'
 import Auth from './logeo';
 
-const inicio = () => {
+const Inicio = () => {
   
+  const navigate = useNavigate()
+
+
   return (
     <div className='pag-bienvenida'>
       <div className='debug bienvenido'>
-        <img src='../media/micro.png'/>
         <span className='titulo-rap-rumble'>Bienvenid@ a Rap Rumble</span>         
       </div>
       <div className='debug busqueda-torneos'>
@@ -35,8 +38,8 @@ const inicio = () => {
       </div>
       <div className='debug menu-opciones'>
         <button className='card-verde'> Registro Usuario</button>
-        <button className='card-gris'> Registro Torneo</button>
-        <button className='card-verde'> Ingreso Usuario</button>
+        <button className='card-gris' onClick={()=>navigate('/registro_torneo')}> Registro Torneo</button>
+        <button className='card-verde' onClick={()=>navigate('/login')}>Ingreso Usuario</button>
       </div>
       <div className='debug'>
         <span>Regresar</span>
@@ -45,4 +48,4 @@ const inicio = () => {
   )
 }
 
-export default inicio
+export default Inicio
