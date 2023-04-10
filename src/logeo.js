@@ -153,7 +153,7 @@ export default (props) => {
           </button>
           <div className='crear-cuenta'>
             <span>¿No estás registrado aún?</span>
-            <span>Crear Cuenta</span>
+            <a onClick={()=>navigate('/registro_usuario')}>Crear Cuenta</a>
           </div>
         </div>
       </div>

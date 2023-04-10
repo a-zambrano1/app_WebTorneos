@@ -41,9 +41,6 @@ const Inicio = () => {
         <button className='card-gris' onClick={()=>navigate('/registro_torneo')}> Registro Torneo</button>
         <button className='card-verde' onClick={()=>navigate('/login')}>Ingreso Usuario</button>
       </div>
-      <div className='debug'>
-        <span>Regresar</span>
-      </div>
     </div>
   )
 }
