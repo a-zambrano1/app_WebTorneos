@@ -11,14 +11,14 @@ const Inicio = () => {
 
   return (
     <div className='pag-bienvenida'>
-      <div className='debug bienvenido'>
+      <div className='bienvenido'>
         <span className='titulo-rap-rumble'>Bienvenid@ a Rap Rumble</span>         
       </div>
-      <div className='debug busqueda-torneos'>
+      <div className='busqueda-torneos'>
         <input placeholder='Buscar torneo...'></input>
         <button>Botón de filtros</button>
       </div>
-      <div className='debug seccion-hacer'>
+      <div className='seccion-hacer'>
         <div>
           <span className='titulos-inicio'>¿Qué quieres hacer?</span>
         </div>
@@ -27,7 +27,7 @@ const Inicio = () => {
         </div>
           
       </div>
-      <div className='debug seccion-hacer'>
+      <div className='seccion-hacer'>
         <div>
           <span className='titulos-inicio'>Últimos Torneos</span>
         </div>
@@ -36,8 +36,7 @@ const Inicio = () => {
         </div>
         
       </div>
-      <div className='debug menu-opciones'>
-        <button className='card-verde'> Registro Usuario</button>
+      <div className='menu-opciones'>
         <button className='card-gris' onClick={()=>navigate('/registro_torneo')}> Registro Torneo</button>
         <button className='card-verde' onClick={()=>navigate('/login')}>Ingreso Usuario</button>
       </div>
