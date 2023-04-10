@@ -15,7 +15,7 @@ const usuario = 'admin'
 const password = 'boticol'
 const dbName = 'rap-rumble'
 const mongoose = require('mongoose');
-const express = require('express')
+//const express = require('express')
 
 const port = process.env.PORT || 3000;
 
