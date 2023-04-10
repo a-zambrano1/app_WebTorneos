@@ -27,7 +27,6 @@ async function main() {
     )
     .then(()=> console.log('conectado a la base de datos mongodb')) 
     .catch(e => console.log('error de conexión', e))
-
 }
 
 
