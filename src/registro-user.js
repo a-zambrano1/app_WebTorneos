@@ -10,6 +10,7 @@ import {
     signInWithPopup
   } from "firebase/auth";
   import auth from "./firebase";
+import micro from "./media/micro.png"
 
 const RegistroUser = () => {
     const [email, setEmail] = useState("");
@@ -33,10 +34,46 @@ const RegistroUser = () => {
       });
     }
 
+
+    const  testeoLoginPost = async (e ) =>{
+      console.log("Entre al perreo")
+      try {
+        let result = await fetch(
+          'http://localhost:5000/register', {
+              method: "post",
+              body: JSON.stringify({ email, password }),
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+          })
+          result = await result.json();
+          console.warn(result);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    const  testeoLoginGet = async (e ) =>{
+      console.log("Entre al perreo")
+      try {
+        let result = await fetch(
+          'http://localhost:5000/', {
+              method: "get",
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+          })
+          result = await result.json();
+          console.warn(result);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
   return (
     <div className='pag-torneo'>
         <div className='bienvenido'>
-            <img src='../media/micro.png'/>
+            <img src={micro}/>
             <span className='titulo-rap-rumble'>Bienvenid@ a Rap Rumble</span>    
             <span>Registro de Usuarios</span>     
         </div>
@@ -45,7 +82,7 @@ const RegistroUser = () => {
             <input onChange={(e) => setEmail(e.target.value)} placeholder='Correo Electrónico'></input>
             <input onChange={(e) => setPassword(e.target.value)} type='password' placeholder='Contraseña'></input>
         </div>
-        <button onClick={() => nuevoRegistro} className='boton-registrar'> Registrar</button>    
+        <button onClick={(e) => testeoLoginGet(e)} className='boton-registrar'> Registrar</button>    
     </div>
   )
 }

@@ -82,7 +82,7 @@ input{
     border-radius: 28px;
     background-color: #2D8F1D;
     width: 80%;
-    height: 100px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 12px;
