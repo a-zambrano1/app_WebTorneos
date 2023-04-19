@@ -82,7 +82,7 @@ const RegistroUser = () => {
             <input onChange={(e) => setEmail(e.target.value)} placeholder='Correo Electrónico'></input>
             <input onChange={(e) => setPassword(e.target.value)} type='password' placeholder='Contraseña'></input>
         </div>
-        <button onClick={(e) => testeoLoginGet(e)} className='boton-registrar'> Registrar</button>    
+        <button onClick={(e) => testeoLoginPost(e)} className='boton-registrar'> Registrar</button>    
     </div>
   )
 }
