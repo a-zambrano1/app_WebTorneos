@@ -8,7 +8,12 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <div className='pag-bienvenida'>
+      <div className='bienvenido'>
+        <span className='titulo-rap-rumble'>Bienvenid@ a Rap Rumble</span>         
+      </div>
+      <App />
+    </div>
   </React.StrictMode>
 );
 

@@ -11,9 +11,6 @@ const Inicio = () => {
 
   return (
     <div className='pag-bienvenida'>
-      <div className='bienvenido'>
-        <span className='titulo-rap-rumble'>Bienvenid@ a Rap Rumble</span>         
-      </div>
       <div className='busqueda-torneos'>
         <input placeholder='Buscar torneo...'></input>
         <button>Botón de filtros</button>

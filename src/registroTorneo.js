@@ -3,11 +3,6 @@ import React from 'react'
 const RegistroTorneo = () => {
   return (
     <div className='pag-torneo'>
-        <div className='bienvenido'>
-            <img src='../media/micro.png'/>
-            <span className='titulo-rap-rumble'>Bienvenid@ a Rap Rumble</span>    
-            <span>Registro de Torneos</span>     
-        </div>
         <div className='nombre-torneo'>
             <input placeholder='Nombre del Torneo'></input>
             <select>
