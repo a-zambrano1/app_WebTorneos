@@ -10,7 +10,7 @@ import {
     signInWithPopup
   } from "firebase/auth";
   import auth from "./firebase";
-import micro from "./media/micro.png"
+import { MDBBtn, MDBIcon, MDBInput } from 'mdb-react-ui-kit';
 
 const RegistroUser = () => {
     const [email, setEmail] = useState("");
@@ -71,18 +71,63 @@ const RegistroUser = () => {
     }
 
   return (
-    <div className='pag-torneo'>
-        <div className='bienvenido'>
-            <img src={micro}/>
-            <span className='titulo-rap-rumble'>Bienvenid@ a Rap Rumble</span>    
-            <span>Registro de Usuarios</span>     
+    <div>
+      <br/>
+      <div>
+        <a className='regresar' onClick={()=>window.history.back() }>« Regresar</a>
+      </div>
+      <br/>
+      <div className='opciones-login'>
+        <span className='raprumble'>Rap 
+          <span className='raprumble1'>Rumble</span>
+        </span>
         </div>
-        <div className='opciones-torneo'>
-            <input placeholder='Nombre de Usuario'></input>
-            <input onChange={(e) => setEmail(e.target.value)} placeholder='Correo Electrónico'></input>
-            <input onChange={(e) => setPassword(e.target.value)} type='password' placeholder='Contraseña'></input>
+      <div className='opciones-login'>
+        <span>Registro de Usuario</span>
+      </div>
+      <br/>
+      <section>
+        <div className='cuadro-informacion'>
+        <MDBInput
+          label="Ingresar Nombre"
+          id="nombre"
+          style={{height:25}}
+        />
+        <MDBInput
+          label="Ingresar Apellido"
+          id="apellido"
+          style={{height:25}}
+        />
+        <MDBInput
+          label="Ingresar A.K.A"
+          id="aka"
+          style={{height:25}}
+        />
+          <MDBInput
+          label="Ingresar Correo"
+          id="email"
+          style={{height:25}}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        
+        <MDBInput
+          minLength="8"
+          label="Ingresar Contraseña"
+          id="password"
+          style={{height:25}}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <MDBBtn onClick={(e) => testeoLoginPost(e)} rounded color='success' size='lg'>Registrar</MDBBtn>
+        <div className='ingreso-correo'>
+          <span>-------- O Registrarse con --------</span>
+          <br/>
+          <div className="opciones-login">
+            <MDBIcon fab icon='google' className="me-2" size="lg" style={{backgroundColor: '#dd4b39'}} href="#" />
+          </div>
+          <br/>
         </div>
-        <button onClick={(e) => testeoLoginPost(e)} className='boton-registrar'> Registrar</button>    
+        </div>  
+      </section> 
     </div>
   )
 }

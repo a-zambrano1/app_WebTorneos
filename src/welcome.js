@@ -16,7 +16,9 @@ const Welcome = () => {
     <div className='pag-bienvenida'>
         <div className='bienvenido'>
         <img src = {micro} width = {96} height = {94}/>
-        <span className='titulo-rap-rumble'>Bienvenid@ a Rap Rumble!</span>         
+        <span className='titulo-rap-rumble'>Bienvenid@ a
+        <span>Rap Rumble! </span>
+        </span>         
       </div>
         <div className='seccion-hacer'>
             <div>

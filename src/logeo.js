@@ -111,10 +111,10 @@ export default (props) => {
   };
 
   return (
-    <div className=''>
+    <div>
       <br/>
       <div>
-        <span className='regresar'> « Regresar</span>
+        <a className='regresar' onClick={()=>window.history.back() }>« Regresar</a>
       </div>
       <br/>
       <div className='opciones-login'>
@@ -134,7 +134,6 @@ export default (props) => {
           style={{height:25}}
           onChange={(e) => setEmail(e.target.value)}
         />
-        
         <MDBInput
           minLength="8"
           label="Ingresar Contraseña"

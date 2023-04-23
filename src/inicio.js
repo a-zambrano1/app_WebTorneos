@@ -4,6 +4,7 @@ import './styles.css'
 import Auth from './logeo';
 import rapero from './media/rapper.png'
 import micro from './media/micro.png'
+import { MDBBtn, MDBIcon, MDBInput } from 'mdb-react-ui-kit';
 
 const Inicio = () => {
   
@@ -14,11 +15,19 @@ const Inicio = () => {
     <div className='pag-bienvenida'>
       <div className='bienvenido'>
         <img src = {micro} width = {96} height = {94}/>
-        <span className='titulo-rap-rumble'>Bienvenid@ a Rap Rumble!</span>         
+        <span className='titulo-rap-rumble'>Bienvenid@ a
+        <span>Rap Rumble! </span>
+        </span>         
       </div>
       <div className='busqueda-torneos'>
-        <input placeholder=' 🔍︎ Buscar torneo...'></input>
-        <button>Botón de filtros</button>
+        <MDBInput
+          label=" 🔍︎ Buscar torneo..."
+          id="buscar"
+          style={{height:25}}
+        />
+        <MDBBtn rounded color='success' size='lg' style={{width:100}}> 
+          <MDBIcon fab icon='Filter circle fill' />
+        </MDBBtn>
       </div>
       <div className='seccion-hacer'>
         <div>
