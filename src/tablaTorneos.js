@@ -1,16 +1,35 @@
 import React from 'react'
 import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import imgJuez from './media/Frame 15.png'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const TablaTorneos = () => {
-    const jueces = [{"id_juez":{"$oid":"640eb26555b3a92e5026d63f"},"aka_juez":"Zzatanas"},
-    {"id_juez":{"$oid":"640eb26555b3a92e5026d640"},"aka_juez":"Dima"},
-    {"id_juez":{"$oid":"640eb26555b3a92e5026d641"},"aka_juez":"Keco"}]
-    
-     
-    
-    
+    const [jueces, setJueces] = useState([])
+
+  const getJueces = async() => {
+    try {
+      let result = await fetch('http://localhost:5000/api/competencia', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).then((response) => response.json())
+      if (result.data != null) {
+        console.log(result.data)
+        setJueces(result.data)
+      } else {
+        console.log('warning', 'Error, no se encuentra la venta asociada.')
+      }
+    } catch (error) {
+      return error
+    }}
+
+  useEffect(() => {
+    getJueces()
+  }, [])
+  
+  
+
 
   return (
     <div>
