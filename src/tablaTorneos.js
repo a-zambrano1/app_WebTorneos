@@ -14,11 +14,11 @@ const TablaTorneos = () => {
           'Content-Type': 'application/json',
         },
       }).then((response) => response.json())
-      if (result.data != null) {
-        console.log(result.data)
-        setJueces(result.data)
+      if (result != null) {
+        console.log(result)
+        setJueces(result[0].jueces)
       } else {
-        console.log('warning', 'Error, no se encuentra la venta asociada.')
+        console.log('warning', 'Error, no se encuentra una competencia.')
       }
     } catch (error) {
       return error
@@ -37,9 +37,11 @@ const TablaTorneos = () => {
       <MDBTableHead>
         <tr>
             <th scope='col'>Nombre/AKA del Juez</th>
-            <MDBBtn color='link' rounded size='sm'>
+            <th>
+              <MDBBtn color='link' rounded size='sm'>
                 Agregar Juez
-            </MDBBtn>
+              </MDBBtn>
+            </th>
         </tr>
       </MDBTableHead>
       <MDBTableBody>
@@ -48,6 +50,8 @@ const TablaTorneos = () => {
                 <tr>
                     <td>
                         <img src={imgJuez}></img>
+                    </td>
+                    <td>
                         {juez.aka_juez}
                     </td>
                 </tr>

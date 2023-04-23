@@ -13,7 +13,7 @@ const AdminTorneo = () => {
             @nombreTorneo
         </div>
         <div className='titulo-torneo'>
-            <MDBBtn type='button' className='btn btn-dark buton-opciones-torneo'>Competidores</MDBBtn>
+            <MDBBtn type='button' className='btn btn-dark buton-opciones-torneo' onClick={() => navigate('/tablaParticipantes')}>Competidores</MDBBtn>
             <MDBBtn type='button' className='btn btn-dark buton-opciones-torneo'>Fechas</MDBBtn>
             <MDBBtn type='button' className='btn btn-dark buton-opciones-torneo'>Batallas</MDBBtn>
             <MDBBtn type='button' className='btn btn-dark buton-opciones-torneo'>Tabla</MDBBtn>
