@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom/dist';
 import tablaTorneos from './tablaTorneos'
 import { MDBBtn } from 'mdb-react-ui-kit';
 import imgVote from './media/vote.png'
+import micro from './media/micro.png'
+
 
 
 const Welcome = () => {
@@ -12,6 +14,10 @@ const Welcome = () => {
 
   return (
     <div className='pag-bienvenida'>
+        <div className='bienvenido'>
+        <img src = {micro} width = {96} height = {94}/>
+        <span className='titulo-rap-rumble'>Bienvenid@ a Rap Rumble!</span>         
+      </div>
         <div className='seccion-hacer'>
             <div>
                 <span className='titulos-inicio'>Hola @Admin, ¿Qué quieres hacer el día de hoy?</span>

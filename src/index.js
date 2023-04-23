@@ -12,10 +12,6 @@ root.render(
   <React.StrictMode>
     <div className='pag-bienvenida'><link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Outfit"/>
-      <div className='bienvenido'>
-        <img src = {micro} width = {96} height = {94}/>
-        <span className='titulo-rap-rumble'>Bienvenid@ a Rap Rumble</span>         
-      </div>
       <App />
     </div>
   </React.StrictMode>

@@ -14,7 +14,6 @@
 .cuadro-informacion{
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 25px;
 }
 
@@ -49,7 +48,7 @@ input{
 
 .opciones-login{
     display: flex;
-    flex-direction: row;
+
 }
 
 .crear-cuenta{
@@ -119,6 +118,46 @@ input{
     font-weight: 400;
     color: #ffffff;
 }
+
+.regresar{
+    display: flex;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000000;
+    height: 30px;
+    width: 127px;
+    left: 32px;
+    top: 114px;
+
+}
+
+.raprumble{
+    display: flex;
+    height: 55px;
+    width: 273px;
+    left: 26px;
+    top: 201px;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 55px;
+
+    color: #000000;
+}
+
+.raprumble1{
+    display: flex;
+    margin-left: 10px;
+    height: 55px;
+    width: 273px;
+    left: 26px;
+    top: 201px;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 55px;
+
+    color: #2D8F1D;
+}
+
 .menu-opciones{
     display: flex;
     flex-direction: row;
@@ -130,7 +169,7 @@ input{
     border-radius: 28px;
     padding: 8px;
     width: 110px;
-    height: 130px;
+    height: 150px;
     border: none;   
 }
 

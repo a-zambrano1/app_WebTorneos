@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 import './styles.css'
 import Auth from './logeo';
 import rapero from './media/rapper.png'
-import micro from './media/google-logo.png'
+import micro from './media/micro.png'
 
 const Inicio = () => {
   
@@ -12,8 +12,12 @@ const Inicio = () => {
 
   return (
     <div className='pag-bienvenida'>
+      <div className='bienvenido'>
+        <img src = {micro} width = {96} height = {94}/>
+        <span className='titulo-rap-rumble'>Bienvenid@ a Rap Rumble!</span>         
+      </div>
       <div className='busqueda-torneos'>
-        <input placeholder='Buscar torneo...'></input>
+        <input placeholder=' 🔍︎ Buscar torneo...'></input>
         <button>Botón de filtros</button>
       </div>
       <div className='seccion-hacer'>
@@ -36,7 +40,7 @@ const Inicio = () => {
       </div>
       <div className='menu-opciones'>
         <button className='card-verde' onClick={()=>navigate('/login')}>Ingreso Usuario
-        <img src = {rapero} width = {96} height = {94}/>
+        <img src = {rapero} width = {92} height = {90}/>
         </button>
       </div>
     </div>

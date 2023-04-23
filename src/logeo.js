@@ -111,10 +111,21 @@ export default (props) => {
   };
 
   return (
-    <div>
-      <div className='titulo-login'>
+    <div className=''>
+      <br/>
+      <div>
+        <span className='regresar'> « Regresar</span>
+      </div>
+      <br/>
+      <div className='opciones-login'>
+        <span className='raprumble'>Rap 
+          <span className='raprumble1'>Rumble</span>
+        </span>
+        </div>
+      <div className='opciones-login'>
         <span>Ingreso de Usuario</span>
       </div>
+      <br/>
     <section>
       <div className="cuadro-informacion">
         <MDBInput
@@ -132,19 +143,18 @@ export default (props) => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <div className='texto-olvidar-password'>
-          <span>Olvidaste tu contraseña</span>
+          <span>Olvidaste tu contraseña?</span>
         </div>
           <MDBBtn rounded color='success' size='lg'>Ingresar</MDBBtn>
         <div className='ingreso-correo'>
-          <span>O iniciar sesión con</span>
+          <span>-------- O iniciar sesión con --------</span>
+          <br/>
           <div className="opciones-login">
           <MDBBtn className="me-2" size="lg" style={{backgroundColor: '#dd4b39'}} href="#" onClick={ingresoGoogle}>
             <MDBIcon fab icon='google' />
           </MDBBtn>
-          <MDBBtn className='me-2' size="lg" style={{ backgroundColor: '#3b5998' }} href='#'>
-            <MDBIcon fab icon='facebook-f' />
-          </MDBBtn> 
           </div>
+          <br/>
           <div className='crear-cuenta'>
             <span>¿No estás registrado aún?</span>
             <a onClick={()=>navigate('/registro_usuario')}>Crear Cuenta</a>
