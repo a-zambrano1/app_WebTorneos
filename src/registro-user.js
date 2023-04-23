@@ -35,7 +35,7 @@ const RegistroUser = () => {
     }
 
 
-    const  testeoLoginPost = async (e ) =>{
+    const  testeoLoginPost = async (e) =>{
       console.log("Entre al perreo")
       try {
         let result = await fetch(

@@ -5,6 +5,8 @@ import Inicio from './inicio';
 import RegistroUser from './registro-user';
 import RegistroTorneo from './registroTorneo';
 import TablaTorneos from './tablaTorneos'
+import AdminTorneo from './adminTorneo';
+import TablaCompetidores from './tablaCompetidores';
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import Welcome  from './welcome';
 export default App; 
@@ -24,6 +26,8 @@ function App() {
           <Route path='/registro_usuario' element={<RegistroUser/>} />
           <Route path='/welcome' element={<Welcome/>} />
           <Route path='/tabla' element={<TablaTorneos/>} />
+          <Route path='/adminTorneo' element={<AdminTorneo/>} />
+          <Route path='/tablaParticipantes' element={<TablaCompetidores/>} />
         </Routes>
       </BrowserRouter>
     </div>

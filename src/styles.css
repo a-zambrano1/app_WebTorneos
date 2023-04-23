@@ -220,6 +220,18 @@ select{
     margin-top: 25px;        
 }
 
-.espacio{
-    gap: 15px;
+.titulo-torneo{
+    display: flex;
+    flex-direction: column;
+    background-color: #2D8F1D;
+    width: 600px;
+    height: 400px;
+    justify-content: center;
+    align-items: start;
+    margin: 20px;
+    border-radius: 28px;
+}
+
+.buton-opciones-torneo{
+    margin: 20px;
 }

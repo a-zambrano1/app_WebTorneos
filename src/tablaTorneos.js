@@ -1,16 +1,35 @@
 import React from 'react'
 import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import imgJuez from './media/Frame 15.png'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const TablaTorneos = () => {
-    const jueces = [{"id_juez":{"$oid":"640eb26555b3a92e5026d63f"},"aka_juez":"Zzatanas"},
-    {"id_juez":{"$oid":"640eb26555b3a92e5026d640"},"aka_juez":"Dima"},
-    {"id_juez":{"$oid":"640eb26555b3a92e5026d641"},"aka_juez":"Keco"}]
-    
-     
-    
-    
+    const [jueces, setJueces] = useState([])
+
+  const getJueces = async() => {
+    try {
+      let result = await fetch('http://localhost:5000/api/competencia', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).then((response) => response.json())
+      if (result != null) {
+        console.log(result)
+        setJueces(result[0].jueces)
+      } else {
+        console.log('warning', 'Error, no se encuentra una competencia.')
+      }
+    } catch (error) {
+      return error
+    }}
+
+  useEffect(() => {
+    getJueces()
+  }, [])
+  
+  
+
 
   return (
     <div>
@@ -18,9 +37,11 @@ const TablaTorneos = () => {
       <MDBTableHead>
         <tr>
             <th scope='col'>Nombre/AKA del Juez</th>
-            <MDBBtn color='link' rounded size='sm'>
+            <th>
+              <MDBBtn color='link' rounded size='sm'>
                 Agregar Juez
-            </MDBBtn>
+              </MDBBtn>
+            </th>
         </tr>
       </MDBTableHead>
       <MDBTableBody>
@@ -29,6 +50,8 @@ const TablaTorneos = () => {
                 <tr>
                     <td>
                         <img src={imgJuez}></img>
+                    </td>
+                    <td>
                         {juez.aka_juez}
                     </td>
                 </tr>
