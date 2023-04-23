@@ -36,7 +36,7 @@ const Inicio = () => {
       </div>
       <div className='menu-opciones'>
         <button className='card-verde' onClick={()=>navigate('/login')}>Ingreso Usuario
-          <img src = {rapero} width = {96} height = {94}/>
+        <img src = {rapero} width = {96} height = {94}/>
         </button>
       </div>
     </div>

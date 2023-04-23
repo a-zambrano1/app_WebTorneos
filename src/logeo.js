@@ -14,7 +14,7 @@ import { useState } from "react";
 import SweetAlert from "sweetalert";
 import { Navigate,useNavigate } from "react-router-dom";
 import './styles.css'
-import { MDBBtn, MDBIcon } from "mdb-react-ui-kit";
+import { MDBBtn, MDBIcon, MDBInput } from "mdb-react-ui-kit";
 
 
 
@@ -117,21 +117,18 @@ export default (props) => {
       </div>
     <section>
       <div className="cuadro-informacion">
-        <input
-          className="controll"
-          type="email"
-          name="email"
-          placeholder="Ingrear Correo"
+        <MDBInput
+          label="Ingresar Correo"
           id="email"
+          style={{height:25}}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
-          className="controll"
-          type="password"
-          name="password"
+        
+        <MDBInput
           minLength="8"
-          placeholder="Ingrear Contraseña"
+          label="Ingresar Contraseña"
           id="password"
+          style={{height:25}}
           onChange={(e) => setPassword(e.target.value)}
         />
         <div className='texto-olvidar-password'>

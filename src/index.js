@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import micro from './media/micro.png'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +13,7 @@ root.render(
     <div className='pag-bienvenida'><link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Outfit"/>
       <div className='bienvenido'>
+        <img src = {micro} width = {96} height = {94}/>
         <span className='titulo-rap-rumble'>Bienvenid@ a Rap Rumble</span>         
       </div>
       <App />
