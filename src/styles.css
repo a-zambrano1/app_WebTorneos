@@ -9,10 +9,6 @@
     align-items: center;
 }
 
-.titulo-app{
-        
-}
-
 .cuadro-informacion{
     display: flex;
     flex-direction: column;
@@ -49,11 +45,9 @@ input{
     font-weight: 100;
 }
 
-.boton-google{
-    width: 75px;
-    height: 48px;
-    border-radius: 8px;
-    background-color: #C5C9D0E5;
+.opciones-login{
+    display: flex;
+    flex-direction: row;
 }
 
 .crear-cuenta{
@@ -103,7 +97,7 @@ input{
 .seccion-hacer{
     display: flex;
     flex-direction: column;
-    width: 65%;
+    width: 80%;
     height: 100 px;
     justify-content: center;
     align-items: center;
@@ -177,4 +171,8 @@ select{
     height: 45px;
     border-radius: 8px;
     margin-top: 25px;        
+}
+
+.espacio{
+    gap: 15px;
 }

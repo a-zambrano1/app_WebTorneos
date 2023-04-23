@@ -1,5 +1,6 @@
 import state from "./state.js";
 import auth from "./firebase";
+import imgGoogle from './media/google-logo.png'
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -13,6 +14,7 @@ import { useState } from "react";
 import SweetAlert from "sweetalert";
 import { Navigate,useNavigate } from "react-router-dom";
 import './styles.css'
+import { MDBBtn, MDBIcon } from "mdb-react-ui-kit";
 
 
 
@@ -25,7 +27,6 @@ export default (props) => {
     
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
         state.islogged = true;
         SweetAlert({
@@ -111,11 +112,7 @@ export default (props) => {
 
   return (
     <div>
-      <div>
-        <span>Regresar</span>
-      </div>
       <div className='titulo-login'>
-        <h1>Rap Rumble</h1>
         <span>Ingreso de Usuario</span>
       </div>
     <section>
@@ -140,17 +137,17 @@ export default (props) => {
         <div className='texto-olvidar-password'>
           <span>Olvidaste tu contraseña</span>
         </div>
-        <input
-          onClick={Ingreso}
-          className="boton-ingresar"
-          type="submit"
-          name=""
-          value="Ingresar"
-        />
+          <MDBBtn rounded color='success' size='lg'>Ingresar</MDBBtn>
         <div className='ingreso-correo'>
           <span>O iniciar sesión con</span>
-          <button title="butonGoogle" img='./media/google-logo.png' className="boton-google" onClick={ingresoGoogle}>
-          </button>
+          <div className="opciones-login">
+          <MDBBtn className="me-2" size="lg" style={{backgroundColor: '#dd4b39'}} href="#" onClick={ingresoGoogle}>
+            <MDBIcon fab icon='google' />
+          </MDBBtn>
+          <MDBBtn className='me-2' size="lg" style={{ backgroundColor: '#3b5998' }} href='#'>
+            <MDBIcon fab icon='facebook-f' />
+          </MDBBtn> 
+          </div>
           <div className='crear-cuenta'>
             <span>¿No estás registrado aún?</span>
             <a onClick={()=>navigate('/registro_usuario')}>Crear Cuenta</a>
