@@ -1,8 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom/dist';
-import tablaTorneos from './tablaTorneos'
 import { MDBBtn } from 'mdb-react-ui-kit';
-import imgVote from './media/vote.png'
 import micro from './media/micro.png'
 import trofeo from './media/trophy.png'
 
