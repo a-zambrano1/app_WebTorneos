@@ -36,7 +36,6 @@ const Inicio = () => {
         <div className='bienvenido'>
           <span className='titulos-inicio1'>¡Votación Rápida!</span>
         </div>
-          
       </div>
       <div className='seccion-hacer'>
         <div>
@@ -45,7 +44,6 @@ const Inicio = () => {
         <div className='bienvenido'>
           <span className='titulos-inicio1'>Lista de Torneos</span>
         </div>
-        
       </div>
       <div className='menu-opciones'>
         <button className='card-verde' onClick={()=>navigate('/login')}>Ingreso Usuario
