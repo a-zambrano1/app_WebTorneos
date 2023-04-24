@@ -37,7 +37,6 @@ const Inicio = () => {
         <div>
         <MDBBtn onClick={()=>navigate('/votar')} rounded color='success' size='lg'> ¡Votación Rápida!</MDBBtn>
         </div>
-          
       </div>
       <div className='seccion-hacer'>
         <div>
@@ -46,7 +45,6 @@ const Inicio = () => {
         <div className='bienvenido'>
           <span className='titulos-inicio1'>Lista de Torneos</span>
         </div>
-        
       </div>
       <div className='menu-opciones'>
         <MDBBtn className='titulo-login' rounded color='success' size='lg' onClick={()=>navigate('/login')}>Ingreso Usuario

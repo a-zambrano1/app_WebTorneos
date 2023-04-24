@@ -43,7 +43,7 @@ const RegistroUser = () => {
       console.log("Entre al perreo")
       try {
         let result = await fetch(
-          'http://localhost:5000/api/usuarios', {
+          'http://localhost:5000/api/formatos', {
               method: "post",
               body: JSON.stringify({ nombre, apellido, email, password, aka, roles }),
               headers: {
@@ -61,7 +61,7 @@ const RegistroUser = () => {
       console.log("Entre al perreo")
       try {
         let result = await fetch(
-          'http://localhost:5000/api/usuarios', {
+          'http://localhost:5000/api/competencias', {
               method: "get",
               headers: {
                   'Content-Type': 'application/json'
