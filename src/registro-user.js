@@ -124,7 +124,7 @@ const RegistroUser = () => {
           style={{height:25}}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <MDBBtn onClick={(e) => testeoLoginPost(e)} rounded color='success' size='lg'>Registrar</MDBBtn>
+        <MDBBtn onClick={(e) => testeoLoginGet(e)} rounded color='success' size='lg'>Registrar</MDBBtn>
         <div className='ingreso-correo'>
           <span>-------- O Registrarse con --------</span>
           <br/>
