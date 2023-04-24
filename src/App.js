@@ -12,8 +12,8 @@ import { Routes, BrowserRouter, Route } from "react-router-dom";
 import Welcome  from './welcome';
 import AdminUltimasBatallas from './adminUltimasBatallas';
 import AdminInformacion from './adminInformacion';
-import votar from './votar';
-import Votar from './votar';
+import InicioVotar from './votar';
+import Votacion4x4 from './votacion4x4';
 export default App; 
 
 
@@ -36,7 +36,8 @@ function App() {
           <Route path='/adminInicio' element={<AdminInicio/>}/>
           <Route path='/adminUltimasBatallas' element={<AdminUltimasBatallas/>}/>
           <Route path='/adminInformacion' element={<AdminInformacion/>}/>
-          <Route path='/votar' element={<Votar/>}/>
+          <Route path='/InicioVotar' element={<InicioVotar/>}/>
+          <Route path='/votar' element={<Votacion4x4/>}/>
         </Routes>
       </BrowserRouter>
     </div>

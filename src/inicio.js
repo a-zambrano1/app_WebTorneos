@@ -35,7 +35,7 @@ const Inicio = () => {
         </div>
         <br/>
         <div>
-        <MDBBtn onClick={()=>navigate('/votar')} rounded color='success' size='lg'> ¡Votación Rápida!</MDBBtn>
+        <MDBBtn onClick={()=>navigate('/InicioVotar')} rounded color='success' size='lg'> ¡Votación Rápida!</MDBBtn>
         </div>
       </div>
       <div className='seccion-hacer'>
