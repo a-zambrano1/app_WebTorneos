@@ -13,8 +13,12 @@ import {
 import { MDBBtn, MDBIcon, MDBInput } from 'mdb-react-ui-kit';
 
 const RegistroUser = () => {
+    const [nombre, setNombre] = useState("");
+    const [apellido, setApellido] = useState("");
+    const [aka, setAka] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [roles, setRoles] = useState(['normal']);
   
     const nuevoRegistro = async () => {
         await createUserWithEmailAndPassword(auth, email, password)
@@ -38,11 +42,10 @@ const RegistroUser = () => {
     const  testeoLoginPost = async (e) =>{
       console.log("Entre al perreo")
       try {
-        let roles = ['normal']
         let result = await fetch(
           'http://localhost:5000/api/usuarios', {
               method: "post",
-              body: JSON.stringify({ email, password, roles }),
+              body: JSON.stringify({ nombre, apellido, email, password, aka, roles }),
               headers: {
                   'Content-Type': 'application/json'
               }
@@ -93,16 +96,19 @@ const RegistroUser = () => {
           label="Ingresar Nombre"
           id="nombre"
           style={{height:25}}
+          onChange={(e) => setNombre(e.target.value)}
         />
         <MDBInput
           label="Ingresar Apellido"
           id="apellido"
           style={{height:25}}
+          onChange={(e) => setApellido(e.target.value)}
         />
         <MDBInput
           label="Ingresar A.K.A"
           id="aka"
           style={{height:25}}
+          onChange={(e) => setAka(e.target.value)}
         />
           <MDBInput
           label="Ingresar Correo"
