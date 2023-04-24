@@ -38,10 +38,11 @@ const RegistroUser = () => {
     const  testeoLoginPost = async (e) =>{
       console.log("Entre al perreo")
       try {
+        let roles = ['normal']
         let result = await fetch(
           'http://localhost:5000/api/usuarios', {
               method: "post",
-              body: JSON.stringify({ email, password }),
+              body: JSON.stringify({ email, password, roles }),
               headers: {
                   'Content-Type': 'application/json'
               }
@@ -53,7 +54,7 @@ const RegistroUser = () => {
       }
     }
 
-    const  testeoLoginGet = async (e ) =>{
+    const  testeoLoginGet = async (e) =>{
       console.log("Entre al perreo")
       try {
         let result = await fetch(

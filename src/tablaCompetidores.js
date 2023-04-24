@@ -5,10 +5,10 @@ import imgJuez from './media/Frame 15.png'
 
 const TablaCompetidores = () => {
      
-        const [competidores, setCompetidores] = useState([])
+      const [competidores, setCompetidores] = useState([])
       const getJueces = async() => {
         try {
-          let result = await fetch('http://localhost:5000/api/competencia', {
+          let result = await fetch('http://localhost:5000/api/competencias', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',

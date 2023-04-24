@@ -26,7 +26,7 @@ const Inicio = () => {
           style={{height:25}}
         />
         <MDBBtn rounded color='success' size='lg' style={{width:100}}> 
-          <MDBIcon fab icon='Filter circle fill' />
+          <i class="fas fa-filter"></i>
         </MDBBtn>
       </div>
       <div className='seccion-hacer'>

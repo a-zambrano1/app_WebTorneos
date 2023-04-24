@@ -144,7 +144,10 @@ export default (props) => {
         <div className='texto-olvidar-password'>
           <span>Olvidaste tu contraseña?</span>
         </div>
-          <MDBBtn rounded color='success' size='lg'>Ingresar</MDBBtn>
+          <MDBBtn rounded color='success' size='lg'>
+            <span>Ingresar</span>
+            <i class="fas fa-right-to-bracket"></i>
+          </MDBBtn>
         <div className='ingreso-correo'>
           <span>-------- O iniciar sesión con --------</span>
           <br/>

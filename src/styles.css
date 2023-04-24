@@ -237,3 +237,11 @@ select{
 .buton-opciones-torneo{
     margin: 20px;
 }
+
+.header-admin-torneos{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    justify-content: space-between;
+    margin: 20px;
+}
