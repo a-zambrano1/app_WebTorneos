@@ -19,11 +19,11 @@ const RegistroTorneo = () => {
       </div>
       <br/>
       <div className='nombre-torneo'>
-          <MDBInput wrapperClass='mb-4' style={{height:25}} label='Nombre del torneo'></MDBInput>
-          <select>
-              <option>Liga</option>
-              <option>Copa</option>
-          </select>
+        <MDBInput wrapperClass='mb-4' style={{height:25, width:135}} label='Nombre del torneo'></MDBInput>
+        <select class="form-select" style={{height:45, width:90}} aria-label="Default select example">
+          <option value="1">Liga</option>
+          <option value="2">Copa</option>
+        </select>
       </div>
       <div className='opciones-torneo'>
           <MDBInput wrapperClass='mb-4' style={{height:25}} size='lg' label='Número de MCs'></MDBInput>

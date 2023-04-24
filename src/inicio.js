@@ -33,8 +33,9 @@ const Inicio = () => {
         <div>
           <span className='titulos-inicio'>¿Qué quieres hacer?</span>
         </div>
-        <div className='bienvenido'>
-          <span className='titulos-inicio1'>¡Votación Rápida!</span>
+        <br/>
+        <div>
+        <MDBBtn onClick={()=>navigate('/votar')} rounded color='success' size='lg'> ¡Votación Rápida!</MDBBtn>
         </div>
           
       </div>
@@ -48,9 +49,9 @@ const Inicio = () => {
         
       </div>
       <div className='menu-opciones'>
-        <button className='card-verde' onClick={()=>navigate('/login')}>Ingreso Usuario
-        <img src = {rapero} width = {92} height = {90}/>
-        </button>
+        <MDBBtn className='titulo-login' rounded color='success' size='lg' onClick={()=>navigate('/login')}>Ingreso Usuario
+        <img src = {rapero} width = {72} height = {70}/>
+        </MDBBtn>
       </div>
     </div>
   )

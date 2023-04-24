@@ -4,7 +4,7 @@ import tablaTorneos from './tablaTorneos'
 import { MDBBtn } from 'mdb-react-ui-kit';
 import imgVote from './media/vote.png'
 import micro from './media/micro.png'
-
+import trofeo from './media/trophy.png'
 
 
 const Welcome = () => {
@@ -25,9 +25,7 @@ const Welcome = () => {
                 <span className='titulos-inicio'>Hola @Admin, ¿Qué quieres hacer el día de hoy?</span>
             </div>
             <div>
-                <MDBBtn rounded color='success' size='lg'>
-                    Realizar una Votación Rápida
-                </MDBBtn>
+                <MDBBtn onClick={()=>navigate('/votar')} rounded color='success' size='lg'> ¡Votación Rápida!</MDBBtn>
             </div>
         </div>
         <div className='seccion-hacer'>
@@ -36,7 +34,9 @@ const Welcome = () => {
             </div>
          </div>
         <div className='menu-opciones'>
-            <button className='card-gris' onClick={()=>navigate('/registro_torneo')}> Registro Torneo</button>
+            <MDBBtn className='titulo-login' rounded color='success' size='lg'  onClick={()=>navigate('/registro_torneo')}> Registrar Torneo
+                <img src = {trofeo} width = {72} height = {70}/>
+            </MDBBtn>
         </div>
     </div>
   )
