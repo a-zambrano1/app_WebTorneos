@@ -61,7 +61,7 @@ const RegistroUser = () => {
       console.log("Entre al perreo")
       try {
         let result = await fetch(
-          'http://localhost:5000/api/competencias', {
+          'http://localhost:5000/api/usuarios', {
               method: "get",
               headers: {
                   'Content-Type': 'application/json'
@@ -124,7 +124,7 @@ const RegistroUser = () => {
           style={{height:25}}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <MDBBtn onClick={(e) => testeoLoginPost(e)} rounded color='success' size='lg'>Registrar</MDBBtn>
+        <MDBBtn onClick={(e) => testeoLoginGet(e)} rounded color='success' size='lg'>Registrar</MDBBtn>
         <div className='ingreso-correo'>
           <span>-------- O Registrarse con --------</span>
           <br/>

@@ -64,7 +64,9 @@ const RegistroTorneo = () => {
       </div>
       <br/>
       <div className='nombre-torneo'>
-        <MDBInput wrapperClass='mb-4' style={{height:25, width:135}} label='Nombre del torneo'
+        <MDBInput wrapperClass='mb-4' 
+          style={{height:25, width:135}} 
+          label='Nombre del torneo'
           id="nombre_competencia"
           onChange={(e) => setNombreCompetencia(e.target.value)}
           ></MDBInput>
@@ -92,7 +94,6 @@ const RegistroTorneo = () => {
             label='Número de Jueces'
             id="numero_jueces"
             >
-            
           </MDBInput>
           <MDBInput wrapperClass='mb-4' 
             style={{height:45}} 
