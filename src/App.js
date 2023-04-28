@@ -14,11 +14,9 @@ import AdminUltimasBatallas from './adminUltimasBatallas';
 import AdminInformacion from './adminInformacion';
 import InicioVotar from './votar';
 import Votacion4x4 from './votacion4x4';
+import MinutosLibres from './minutosLibres';
 export default App; 
 
-
-
-//Conexion a base de datos
 
 function App() {
   return (
@@ -38,6 +36,7 @@ function App() {
           <Route path='/adminInformacion' element={<AdminInformacion/>}/>
           <Route path='/InicioVotar' element={<InicioVotar/>}/>
           <Route path='/votar' element={<Votacion4x4/>}/>
+          <Route path='/votarMinutos' element={<MinutosLibres/>} />
         </Routes>
       </BrowserRouter>
     </div>

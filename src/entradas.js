@@ -15,6 +15,7 @@ const Entrada4x4 = () => {
         <MDBBtn onClick={() => setValor(valor+0.5)} class="btn btn-outline-secondary btn-rounded">+</MDBBtn>
       </div>
     </div>
+    
   )
 }
 

@@ -12,6 +12,7 @@ const Welcome = () => {
 
   return (
     <div className='pag-bienvenida'>
+        <button type="button" class="btn btn-info" onClick={() => navigate('/login')}>Cerrar Sesión</button>
         <div className='bienvenido'>
         <img src = {micro} width = {96} height = {94}/>
         <span className='titulo-rap-rumble'>Bienvenid@ a

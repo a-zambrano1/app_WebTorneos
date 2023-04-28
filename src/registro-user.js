@@ -121,6 +121,7 @@ const RegistroUser = () => {
           minLength="8"
           label="Ingresar Contraseña"
           id="password"
+          type='password'
           style={{height:25}}
           onChange={(e) => setPassword(e.target.value)}
         />

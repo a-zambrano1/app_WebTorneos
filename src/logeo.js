@@ -114,7 +114,7 @@ export default (props) => {
     <div>
       <br/>
       <div>
-        <a className='regresar' onClick={()=>window.history.back() }>« Regresar</a>
+        <a className='regresar' onClick={()=>navigate('/') }>« Regresar</a>
       </div>
       <br/>
       <div className='opciones-login'>
@@ -137,6 +137,7 @@ export default (props) => {
         <MDBInput
           minLength="8"
           label="Ingresar Contraseña"
+          type="password"
           id="password"
           style={{height:25}}
           onChange={(e) => setPassword(e.target.value)}

@@ -14,7 +14,7 @@ const HeaderVotar = () => {
         </MDBBtn></text>
         <text className='titulo-login'>8x8 <MDBBtn rounded color='success' size='lg' style={{width:50, height:50}}>
         </MDBBtn></text>
-        <text className='titulo-login'>Minuto Libre <MDBBtn rounded color='success' size='lg' style={{width:50, height:50}}>
+        <text className='titulo-login'>Minuto Libre <MDBBtn rounded color='success' size='lg' style={{width:50, height:50}} onClick={() => navigate('/votarMinutos')}>
         </MDBBtn></text>
         <text className='titulo-login'>Acapella <MDBBtn rounded color='success' size='lg' style={{width:50, height:50}}>
         </MDBBtn></text>
