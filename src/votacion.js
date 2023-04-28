@@ -14,7 +14,7 @@ const Votacion = () => {
   const location = useLocation();
 
 
-  const cambioFormato = (param) => {
+  const CambioFormato = (param) => {
     switch(param){
       case 0:
         return(<Votacion/>)
@@ -51,6 +51,7 @@ const Votacion = () => {
             <span>{location.state.mc1}</span>
             <span>{location.state.mc2}</span>
           </div>
+          <CambioFormato param={formatoActual}/>
           <div className='entradas-votacion'>
             <div className='separacion-entradas'>
               {Array.from({length: entradas}, (_,i) => <Entrada4x4 key={i} />)}
