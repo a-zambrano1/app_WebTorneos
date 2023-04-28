@@ -32,7 +32,7 @@ const IngresoMC = () => {
         <MDBBtn className='titulo-login' 
         rounded color='success' 
         size='lg'
-        onClick={() => navigate('/votar')}
+        onClick={() => navigate('/votar',  {state:{mc1: mc1, mc2: mc2}})}
         >Iniciar Votación</MDBBtn>
       </div>
   )

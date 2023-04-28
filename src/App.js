@@ -13,7 +13,7 @@ import Welcome  from './welcome';
 import AdminUltimasBatallas from './adminUltimasBatallas';
 import AdminInformacion from './adminInformacion';
 import InicioVotar from './votar';
-import Votacion4x4 from './votacion4x4';
+import Votacion from './votacion';
 import MinutosLibres from './minutosLibres';
 export default App; 
 
@@ -35,7 +35,7 @@ function App() {
           <Route path='/adminUltimasBatallas' element={<AdminUltimasBatallas/>}/>
           <Route path='/adminInformacion' element={<AdminInformacion/>}/>
           <Route path='/InicioVotar' element={<InicioVotar/>}/>
-          <Route path='/votar' element={<Votacion4x4/>}/>
+          <Route path='/votar' element={<Votacion/>}/>
           <Route path='/votarMinutos' element={<MinutosLibres/>} />
         </Routes>
       </BrowserRouter>
