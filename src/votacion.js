@@ -1,68 +1,50 @@
-import React, {useState } from 'react'
+import React, {useState} from 'react'
 import CerrarVotar from './cerrarVotar'
 import Entrada4x4 from './entradas'
 import { MDBBtn, MDBInput } from 'mdb-react-ui-kit'
 import { useLocation } from 'react-router-dom'
 import MinutosLibres from './minutosLibres'
+import Votacion4x4 from './votacion4x4'
 
 const Votacion = () => {
   
-  const [numEntradas,setNumEntradas] = useState(0)
-  const [entradas, setEntradas] = useState(0)
+
   const [formatoActual, setFormatoActual] = useState(0)
 
   const location = useLocation();
 
-
-  const CambioFormato = (param) => {
-    switch(param){
+  function CambioFormato (param) {
+    console.log(param.formato)
+    switch (param.formato) {
       case 0:
-        return(<Votacion/>)
+        return(<Votacion4x4 mc1={location.state.mc1} mc2={location.state.mc2}/>)
       case 2:
-        return(<MinutosLibres/>)
-    }
+        return(<MinutosLibres mc1={location.state.mc1} mc2={location.state.mc2}/>)
+      default:
+        return(<div>Componente vacío</div>)    
+    } 
   }
 
-  const renderEntrada = () => {
-    setEntradas(numEntradas);
-  }
-
-  return (
+ return (
     <div>
         <CerrarVotar/>
         <div className= 'header-admin-torneos'>
             <text className='titulo-login'>4x4 <MDBBtn rounded color='success' size='lg' style={{width:50, height:50}} onClick={() => setFormatoActual(0)}>
           </MDBBtn></text>
-            <text className='titulo-login'>8x8 <MDBBtn rounded color='success' size='lg' style={{width:50, height:50}}>
+            <text className='titulo-login'>8x8 <MDBBtn rounded color='success' size='lg' style={{width:50, height:50}} onClick={() => setFormatoActual(1)}>
           </MDBBtn></text>
             <text className='titulo-login'>Minuto Libre <MDBBtn rounded color='success' size='lg' style={{width:50, height:50}} onClick={() => setFormatoActual(2)}>
           </MDBBtn></text>
-            <text className='titulo-login'>Acapella <MDBBtn rounded color='success' size='lg' style={{width:50, height:50}}>
+            <text className='titulo-login'>Acapella <MDBBtn rounded color='success' size='lg' style={{width:50, height:50}} onClick={() => setFormatoActual(3)}>
           </MDBBtn></text>
-            <text className='titulo-login'>KickBack <MDBBtn rounded color='success' size='lg' style={{width:50, height:50}}>
+            <text className='titulo-login'>KickBack <MDBBtn rounded color='success' size='lg' style={{width:50, height:50}} onClick={() => setFormatoActual(4)}>
         </MDBBtn></text>
       </div>
-        <div className='panel-votacion'>
-          <div>
-            <MDBInput label='Ingrese número de entradas' type='number' onChange={(e) => setNumEntradas(e.target.value)}></MDBInput>
-            <MDBBtn class='btn btn-success' onClick={renderEntrada}>Iniciar</MDBBtn>
-          </div>
-          <div className='titulo-mcs'>
-            <span>{location.state.mc1}</span>
-            <span>{location.state.mc2}</span>
-          </div>
-          <CambioFormato param={formatoActual}/>
-          <div className='entradas-votacion'>
-            <div className='separacion-entradas'>
-              {Array.from({length: entradas}, (_,i) => <Entrada4x4 key={i} />)}
-            </div>
-            <div className='separacion-entradas'>
-              {Array.from({length: entradas}, (_,i) => <Entrada4x4 key={i} />)}
-            </div>
-          </div>
-        </div>
+       <CambioFormato formato={formatoActual}/> 
     </div>
   )
 }
+
+
 
 export default Votacion
