@@ -4,19 +4,19 @@ import { useState } from 'react';
 
 const RegistroTorneo = () => {
   
-  const [nombre_competencia, setNombreCompetencia] = useState("");
-  const [tipo_competencia, setTipo_Competencia] = useState("");
+  const [nombre_competencia, setNombreTorneo] = useState("");
+  const [tipo_torneo, setTipo_Torneo] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [numero_fechas, setNumeroFechas] = useState("");
 
 
-    const TorneoPost = async (e) =>{
+    const TorneoPost = async (e) =>{  
       console.log("Entre al perreo")
       try {
         let result = await fetch(
-          'http://localhost:5000/api/competencias', {
+          'http://localhost:5000/api/torneos', {
               method: "post",
-              body: JSON.stringify({descripcion}),
+              body: JSON.stringify({nombre_competencia,tipo_torneo,numero_fechas, descripcion}),
               headers: {
                   'Content-Type': 'application/json'
               }
@@ -33,7 +33,7 @@ const RegistroTorneo = () => {
       console.log("Entre al perreo")
       try {
         let result = await fetch(
-          'http://localhost:5000/api/competencias', {
+          'http://localhost:5000/api/torneos', {
               method: "get",
               headers: {
                   'Content-Type': 'application/json'
@@ -68,7 +68,7 @@ const RegistroTorneo = () => {
           style={{height:25, width:135}} 
           label='Nombre del torneo'
           id="nombre_competencia"
-          onChange={(e) => setNombreCompetencia(e.target.value)}
+          onChange={(e) => setNombreTorneo(e.target.value)}
           ></MDBInput>
         <select class="form-select" style={{height:45, width:90}} aria-label="Default select example">
           <option value="1">Liga</option>

@@ -8,7 +8,7 @@ const TablaCompetidores = () => {
       const [competidores, setCompetidores] = useState([])
       const getJueces = async() => {
         try {
-          let result = await fetch('http://localhost:5000/api/competencias', {
+          let result = await fetch('http://localhost:5000/api/torneos', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ const TablaCompetidores = () => {
             console.log(result)
             setCompetidores(result[0].participantes)
           } else {
-            console.log('warning', 'Error, no se encuentra una competencia.')
+            console.log('warning', 'Error, no se encuentra el torneo.')
           }
         } catch (error) {
           return error

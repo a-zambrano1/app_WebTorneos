@@ -8,7 +8,7 @@ const TablaTorneos = () => {
 
   const getJueces = async() => {
     try {
-      let result = await fetch('http://localhost:5000/api/competencias', {
+      let result = await fetch('http://localhost:5000/api/torneos', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ const TablaTorneos = () => {
         console.log(result)
         setJueces(result[0].jueces)
       } else {
-        console.log('warning', 'Error, no se encuentra una competencias.')
+        console.log('warning', 'Error, no se encuentra el torneo.')
       }
     } catch (error) {
       return error

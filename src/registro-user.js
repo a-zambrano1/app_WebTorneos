@@ -13,7 +13,7 @@ import {
 import { MDBBtn, MDBIcon, MDBInput } from 'mdb-react-ui-kit';
 
 const RegistroUser = () => {
-    const [nombre, setNombre] = useState("");
+    const [nombre, setNombre] = useState("pablo");
     const [apellido, setApellido] = useState("");
     const [aka, setAka] = useState("");
     const [email, setEmail] = useState("");
@@ -39,18 +39,20 @@ const RegistroUser = () => {
     }
 
 
-    const  testeoLoginPost = async (e) =>{
+    const testeoLoginPost = async (e) =>{
       console.log("Entre al perreo")
       try {
-        let result = await fetch(
-          'http://localhost:5000/api/formatos', {
+        const response = await fetch(
+          'http://localhost:5000/api/usuarios', {
               method: "post",
-              body: JSON.stringify({ nombre, apellido, email, password, aka, roles }),
               headers: {
                   'Content-Type': 'application/json'
-              }
+              },
+              body: JSON.stringify({ nombre,apellido, aka, email, password, roles })
+              
           })
-          result = await result.json();
+          const result = await response.json();
+          console.log(result);
           console.warn(result);
       } catch (error) {
         console.log(error);
@@ -125,7 +127,7 @@ const RegistroUser = () => {
           style={{height:25}}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <MDBBtn onClick={(e) => testeoLoginGet(e)} rounded color='success' size='lg'>Registrar</MDBBtn>
+        <MDBBtn onClick={(e) => testeoLoginPost(e)} rounded color='success' size='lg'>Registrar</MDBBtn>
         <div className='ingreso-correo'>
           <span>-------- O Registrarse con --------</span>
           <br/>
