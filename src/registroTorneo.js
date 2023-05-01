@@ -67,30 +67,36 @@ const RegistroTorneo = () => {
         <MDBInput wrapperClass='mb-4' 
           style={{height:25, width:135}} 
           label='Nombre del torneo'
-          id="nombre_competencia"
+          id="nombre_torneo"
           onChange={(e) => setNombreTorneo(e.target.value)}
           ></MDBInput>
-        <select class="form-select" style={{height:45, width:90}} aria-label="Default select example">
+        <select class="form-select" 
+          style={{height:45, width:90}} 
+          aria-label="Default select example"
+          label='Tipo de torneo'
+          id="tipo_torneo"
+          onChange={(e) => setTipo_Torneo(e.target.value)}
+          >
           <option value="1">Liga</option>
           <option value="2">Copa</option>
         </select>
       </div>
-      <div className='opciones-torneo'>
+      <div className='numero-mcs'>
           <MDBInput wrapperClass='mb-4'
-            style={{height:25}} 
+            style={{height:40}} 
             size='lg'
             id="numero_mcs"
             label='Número de MCs'
             >
           </MDBInput>
           <MDBInput wrapperClass='mb-4' 
-            style={{height:25}} 
+            style={{height:40}} 
             label='Número de Fechas'
             id="numero_fechas"
             onChange={(e) => setNumeroFechas(e.target.value)}>
           </MDBInput>
           <MDBInput wrapperClass='mb-4' 
-            tyle={{height:25}} 
+            tyle={{height:40}} 
             label='Número de Jueces'
             id="numero_jueces"
             >

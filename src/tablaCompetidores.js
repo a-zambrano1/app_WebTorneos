@@ -8,7 +8,7 @@ const TablaCompetidores = () => {
       const [competidores, setCompetidores] = useState([])
       const getJueces = async() => {
         try {
-          let result = await fetch('http://localhost:5000/api/torneos', {
+          let result = await fetch('http://localhost:5000/api/torneos/nombre', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
