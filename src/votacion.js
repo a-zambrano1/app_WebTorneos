@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
 import CerrarVotar from './cerrarVotar'
-import Entrada4x4 from './entradas'
 import { MDBBtn, MDBInput } from 'mdb-react-ui-kit'
 import { useLocation } from 'react-router-dom'
 import MinutosLibres from './minutosLibres'
 import Votacion4x4 from './votacion4x4'
+import Votacion8x8 from './votacion8x8'
+import VotacionAcapella from './votacionAcapella'
+import VotacionKickBack from './votacionKickBack'
 
 const Votacion = () => {
   
@@ -18,8 +20,14 @@ const Votacion = () => {
     switch (param.formato) {
       case 0:
         return(<Votacion4x4 mc1={location.state.mc1} mc2={location.state.mc2}/>)
+      case 1:
+        return(<Votacion8x8 mc1={location.state.mc1} mc2={location.state.mc2}/>)
       case 2:
         return(<MinutosLibres mc1={location.state.mc1} mc2={location.state.mc2}/>)
+      case 3:
+        return(<VotacionAcapella mc1={location.state.mc1} mc2={location.state.mc2}/>)
+      case 4:
+        return(<VotacionKickBack mc1={location.state.mc1} mc2={location.state.mc2}/>)    
       default:
         return(<div>Componente vacío</div>)    
     } 
