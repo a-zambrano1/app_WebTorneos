@@ -75,10 +75,10 @@ const RegistroTorneo = () => {
           aria-label="Default select example"
           label='Tipo de torneo'
           id="tipo_torneo"
-          onChange={(e) => setTipo_Torneo(e.target.value)}
+          onChange ={(e) => setTipo_Torneo(e.target.value)}
           >
-          <option value="1">Liga</option>
-          <option value="2">Copa</option>
+          <option value='Liga'>Liga</option>
+          <option value='Copa'>Copa</option>
         </select>
       </div>
       <div className='numero-mcs'>
