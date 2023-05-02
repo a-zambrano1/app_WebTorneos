@@ -5,7 +5,7 @@ import { useState } from 'react';
 const RegistroTorneo = () => {
   
   const [nombre_competencia, setNombreTorneo] = useState("");
-  const [tipo_torneo, setTipo_Torneo] = useState("liga");
+  const [tipo, setTipo_Torneo] = useState("liga");
   const [descripcion, setDescripcion] = useState("");
   const [numero_fechas, setNumeroFechas] = useState("");
 
@@ -16,7 +16,7 @@ const RegistroTorneo = () => {
         let result = await fetch(
           'http://localhost:5000/api/torneos', {
               method: "post",
-              body: JSON.stringify({nombre_competencia,tipo_torneo,numero_fechas, descripcion}),
+              body: JSON.stringify({nombre_competencia,tipo,numero_fechas, descripcion}),
               headers: {
                   'Content-Type': 'application/json'
               }
@@ -74,7 +74,7 @@ const RegistroTorneo = () => {
           style={{height:45, width:90}} 
           aria-label="Default select example"
           label='Tipo de torneo'
-          id="tipo_torneo"
+          id="tipo"
           onChange ={(e) => setTipo_Torneo(e.target.value)}
           >
           <option value='Liga'>Liga</option>
