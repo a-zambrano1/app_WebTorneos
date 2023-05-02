@@ -313,3 +313,42 @@ select{
     font-size: 32px;
     text-align: center;
 }
+
+.separacion-kickback{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo-kickback{
+    font-size: 24px;
+}
+
+.subtitulo-kickback{
+    font-size: 20px;
+    font-weight: 800;
+    color: black;
+}
+
+.seccion-ida{
+    background-color: #64c27b;
+    border: #000000 1px solid;
+    padding: 10px;
+}
+
+.seccion-vuelta{
+    background-color: #64c27b;
+    border: #000000 1px solid;
+    padding: 10px;
+}
+
+.patrones-kickback{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px;
+}
