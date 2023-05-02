@@ -1,5 +1,5 @@
 import React from 'react'
-import Entrada4x4 from './entradas'
+import Entrada4x4 from '../../utils/entradas'
 import { useLocation } from 'react-router-dom';
 
 const MinutosLibres = ({mc1, mc2}) => {

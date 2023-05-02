@@ -1,6 +1,6 @@
 import React from 'react'
 import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
-import imgJuez from './media/Frame 15.png'
+import imgJuez from '../../media/Frame 15.png'
 import { useState, useEffect } from 'react';
 
 const TablaTorneos = () => {

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom/dist';
 import { MDBBtn } from 'mdb-react-ui-kit';
-import micro from './media/micro.png'
-import trofeo from './media/trophy.png'
+import micro from '../../media/micro.png'
+import trofeo from '../../media/trophy.png'
 
 
 const Welcome = () => {

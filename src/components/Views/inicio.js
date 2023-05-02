@@ -1,9 +1,9 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
-import './styles.css'
+import '../../styles/styles.css'
 import Auth from './logeo';
-import rapero from './media/rapper.png'
-import micro from './media/micro.png'
+import rapero from '../../media/rapper.png'
+import micro from '../../media/micro.png'
 import { MDBBtn, MDBIcon, MDBInput } from 'mdb-react-ui-kit';
 
 const Inicio = () => {

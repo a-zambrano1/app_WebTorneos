@@ -2,7 +2,7 @@ import React from 'react'
 import { MDBBtn } from 'mdb-react-ui-kit'
 import { useNavigate } from 'react-router-dom'
 import NavbarAdmin from './navbarAdmin'
-import HeaderAdminTorneo from './headerAdminTorneo'
+import HeaderAdminTorneo from '../../utils/headerAdminTorneo'
 
 const AdminInicio = () => {
   const navigate = useNavigate()

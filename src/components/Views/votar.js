@@ -1,5 +1,5 @@
 import React from 'react'
-import IngresoMC from './ingresoMC'
+import IngresoMC from '../../utils/ingresoMC'
 
 const InicioVotar = () => {
   return (

@@ -9,7 +9,7 @@ import {
     GoogleAuthProvider,
     signInWithPopup
   } from "firebase/auth";
-  import auth from "./firebase";
+  import auth from "../../firebase/firebase";
 import { MDBBtn, MDBIcon, MDBInput } from 'mdb-react-ui-kit';
 
 const RegistroUser = () => {

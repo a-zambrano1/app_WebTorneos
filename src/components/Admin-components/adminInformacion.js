@@ -1,5 +1,5 @@
 import NavbarAdmin from "./navbarAdmin"
-import HeaderAdminTorneo from './headerAdminTorneo'
+import HeaderAdminTorneo from '../../utils/headerAdminTorneo'
 
 const AdminInformacion = () => {
   return (

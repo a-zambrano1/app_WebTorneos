@@ -1,20 +1,20 @@
-import './App.css';
-import Auth from './logeo';
+import '../../styles/App.css';
+import Auth from '../Views/logeo';
 import React from "react";
-import Inicio from './inicio';
-import RegistroUser from './registro-user';
-import RegistroTorneo from './registroTorneo';
-import TablaTorneos from './tablaTorneos'
-import AdminTorneo from './adminTorneo';
-import TablaCompetidores from './tablaCompetidores';
-import AdminInicio from './adminInicio'
+import Inicio from '../Views/inicio';
+import RegistroUser from '../Views/registro-user';
+import RegistroTorneo from '../Views/registroTorneo';
+import TablaTorneos from '../Tables/tablaTorneos'
+import AdminTorneo from '../Admin-components/adminTorneo';
+import TablaCompetidores from '../Tables/tablaCompetidores';
+import AdminInicio from '../Admin-components/adminInicio'
 import { Routes, BrowserRouter, Route } from "react-router-dom";
-import Welcome  from './welcome';
-import AdminUltimasBatallas from './adminUltimasBatallas';
-import AdminInformacion from './adminInformacion';
-import InicioVotar from './votar';
-import Votacion from './votacion';
-import MinutosLibres from './minutosLibres';
+import Welcome  from '../Views/welcome';
+import AdminUltimasBatallas from '../Admin-components/adminUltimasBatallas';
+import AdminInformacion from '../Admin-components/adminInformacion';
+import InicioVotar from '../Views/votar';
+import Votacion from '../Views/votacion';
+import MinutosLibres from '../Votaciones/minutosLibres';
 export default App; 
 
 

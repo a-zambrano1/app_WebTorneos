@@ -1,7 +1,7 @@
 import React from 'react'
 import { MDBBtn, MDBInput } from 'mdb-react-ui-kit'
 import { useState } from 'react'
-import Entrada4x4 from './entradas'
+import Entrada4x4 from '../../utils/entradas'
 
 const Votacion4x4 = ({mc1, mc2}) => {
     

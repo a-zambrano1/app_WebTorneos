@@ -1,8 +1,8 @@
 import React from 'react'
-import imgBatalla from './media/batalla.png'
+import imgBatalla from '../../media/batalla.png'
 import {useNavigate } from 'react-router-dom'
 import NavbarAdmin from './navbarAdmin'
-import HeaderAdminTorneo from './headerAdminTorneo'
+import HeaderAdminTorneo from '../../utils/headerAdminTorneo'
 const AdminTorneo = () => {
   
   const navigate = useNavigate();

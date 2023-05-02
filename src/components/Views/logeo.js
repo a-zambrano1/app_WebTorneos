@@ -1,6 +1,5 @@
-import state from "./state.js";
-import auth from "./firebase";
-import imgGoogle from './media/google-logo.png'
+import state from "../../state.js";
+import auth from "../../firebase/firebase.js";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -13,7 +12,7 @@ import {
 import { useState } from "react";
 import SweetAlert from "sweetalert";
 import { Navigate,useNavigate } from "react-router-dom";
-import './styles.css'
+import '../../styles/styles.css'
 import { MDBBtn, MDBIcon, MDBInput } from "mdb-react-ui-kit";
 
 

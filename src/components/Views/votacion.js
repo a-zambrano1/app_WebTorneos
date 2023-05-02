@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
-import CerrarVotar from './cerrarVotar'
+import CerrarVotar from '../../utils/cerrarVotar'
 import { MDBBtn, MDBInput } from 'mdb-react-ui-kit'
 import { useLocation } from 'react-router-dom'
-import MinutosLibres from './minutosLibres'
-import Votacion4x4 from './votacion4x4'
-import Votacion8x8 from './votacion8x8'
-import VotacionAcapella from './votacionAcapella'
-import VotacionKickBack from './votacionKickBack'
+import MinutosLibres from '../Votaciones/minutosLibres'
+import Votacion4x4 from '../Votaciones/votacion4x4'
+import Votacion8x8 from '../Votaciones/votacion8x8'
+import VotacionAcapella from '../Votaciones/votacionAcapella'
+import VotacionKickBack from '../Votaciones/votacionKickBack'
 
 const Votacion = () => {
   
