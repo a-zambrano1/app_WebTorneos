@@ -5,7 +5,7 @@ import { useState } from 'react';
 const RegistroTorneo = () => {
   
   const [nombre_competencia, setNombreTorneo] = useState("");
-  const [tipo_torneo, setTipo_Torneo] = useState("");
+  const [tipo_torneo, setTipo_Torneo] = useState("liga");
   const [descripcion, setDescripcion] = useState("");
   const [numero_fechas, setNumeroFechas] = useState("");
 
