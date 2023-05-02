@@ -43,7 +43,7 @@ const RegistroUser = () => {
       console.log("Entre al perreo")
       try {
         const response = await fetch(
-          'http://localhost:5000/api/usuarios', {
+          'http://localhost:5000/api/votaciones', { 
               method: "post",
               headers: {
                   'Content-Type': 'application/json'
