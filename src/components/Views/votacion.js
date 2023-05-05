@@ -13,6 +13,8 @@ const Votacion = () => {
   
 
   const [formatoActual, setFormatoActual] = useState(0)
+  const [resultado1, setResultado1] = useState(0)
+  const [resultado2, setResultado2] = useState(0)
 
   const location = useLocation();
 
@@ -50,7 +52,7 @@ const Votacion = () => {
         </MDBBtn></text>
       </div>
        <CambioFormato formato={formatoActual}/>
-       <ResultadoVotaciones />
+       <ResultadoVotaciones resultado1={resultado1} resultado2={resultado2} />
     </div>
   )
 }

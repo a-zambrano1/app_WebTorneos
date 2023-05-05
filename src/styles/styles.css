@@ -9,6 +9,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    opacity: 0.7;
+    transition: .5s ease;
+}
+
+.titulo-login:hover{
+    opacity: 1;
+    filter: contrast(120%);
 }
 
 .cuadro-informacion{
@@ -364,6 +371,7 @@ select{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin: 10px;
     gap: 20px;
     padding: 10px;
     background-color: #64c27b;
@@ -375,5 +383,4 @@ select{
     font-weight: 700;
     -webkit-text-fill-color: white;
     -webkit-text-stroke: 1px black;
-    
 }

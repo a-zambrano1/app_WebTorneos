@@ -26,8 +26,14 @@ const VotacionKickBack = ({mc1,mc2}) => {
       <div>
         <span className='titulo-kickback'>IDA</span>
         <div className='separacion-kickback subtitulo-kickback seccion-ida'>
-          <span>Pregunta</span>
-          <span>Respuesta</span>
+          <div className='separacion-entradas'>
+            <span>Pregunta</span>
+            {Array.from({length: entradas}, (_,i) => <Entrada4x4 key={i} />)}
+          </div>
+          <div className='separacion-entradas'>
+            <span>Respuesta</span>
+            {Array.from({length: entradas}, (_,i) => <Entrada4x4 key={i} />)}
+          </div>
         </div>
         <div className='patrones-kickback'>
             
@@ -36,8 +42,14 @@ const VotacionKickBack = ({mc1,mc2}) => {
       <div>
         <span className='titulo-kickback'>VUELTA</span>
         <div className='separacion-kickback subtitulo-kickback seccion-vuelta'>
-          <span>Respuesta</span>
-          <span>Pregunta</span>
+        <div className='separacion-entradas'>
+            <span>Respuesta</span>
+            {Array.from({length: entradas}, (_,i) => <Entrada4x4 key={i} />)}
+          </div>
+          <div className='separacion-entradas'>
+            <span>Pregunta</span>
+            {Array.from({length: entradas}, (_,i) => <Entrada4x4 key={i} />)}
+          </div>
         </div>
       </div>
     </div>
