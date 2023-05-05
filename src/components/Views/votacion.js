@@ -7,6 +7,7 @@ import Votacion4x4 from '../Votaciones/votacion4x4'
 import Votacion8x8 from '../Votaciones/votacion8x8'
 import VotacionAcapella from '../Votaciones/votacionAcapella'
 import VotacionKickBack from '../Votaciones/votacionKickBack'
+import ResultadoVotaciones from '../Votaciones/resultadoVotaciones'
 
 const Votacion = () => {
   
@@ -48,7 +49,8 @@ const Votacion = () => {
             <text className='titulo-login'>KickBack <MDBBtn rounded color='success' size='lg' style={{width:50, height:50}} onClick={() => setFormatoActual(4)}>
         </MDBBtn></text>
       </div>
-       <CambioFormato formato={formatoActual}/> 
+       <CambioFormato formato={formatoActual}/>
+       <ResultadoVotaciones />
     </div>
   )
 }

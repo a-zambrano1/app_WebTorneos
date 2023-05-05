@@ -352,3 +352,28 @@ select{
     align-items: center;
     margin: 15px;
 }
+
+.titulo-resultados{
+    font-size: x-large;
+    font-weight: 700;
+    text-align: start;
+}
+
+.recuadro-resultado{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    background-color: #64c27b;
+    border: 2px gray;
+}
+
+.texto-resultado{
+    font-size: 24px;
+    font-weight: 700;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 1px black;
+    
+}
