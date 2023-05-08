@@ -9,7 +9,7 @@ const Entrada4x4 = () => {
   return (
     <div>
       <div className='entrada'>
-        <span>Patrón</span>       
+               
         <MDBBtn onClick={() => setValor(valor-0.5)} class="btn btn-outline-secondary btn-rounded">-</MDBBtn>
         <span>{valor}</span>
         <MDBBtn onClick={() => setValor(valor+0.5)} class="btn btn-outline-secondary btn-rounded">+</MDBBtn>
