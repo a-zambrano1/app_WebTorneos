@@ -1,3 +1,4 @@
+import { MDBBtn } from 'mdb-react-ui-kit'
 import React from 'react'
 
 const ResultadoVotaciones = ({resultado1, resultado2}) => {
@@ -8,6 +9,7 @@ const ResultadoVotaciones = ({resultado1, resultado2}) => {
         <span>{resultado1}</span>
         <span>{resultado2}</span>
       </div>
+      <MDBBtn className='btn btn-success'>Guardar</MDBBtn>
     </div>
   )
 }
