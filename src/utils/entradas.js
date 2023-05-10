@@ -1,21 +1,21 @@
 import { MDBBtn } from 'mdb-react-ui-kit'
-import React, { useState } from 'react'
 
-const Entrada4x4 = () => {
-  
-  const [valor, setValor] = useState(0.0)
-  
-  
+const Entrada4x4 = ({mc, onSaveEntradas, listValuesMC}) => {
+  const changeValor = (valor, index) => {
+    onSaveEntradas(mc, index, valor)
+  }
   return (
     <div>
-      <div className='entrada'>
-               
-        <MDBBtn onClick={() => setValor(valor-0.5)} class="btn btn-outline-secondary btn-rounded">-</MDBBtn>
-        <span>{valor}</span>
-        <MDBBtn onClick={() => setValor(valor+0.5)} class="btn btn-outline-secondary btn-rounded">+</MDBBtn>
+      {listValuesMC.map((valor,index) => {
+        return(
+        <div key={index} className='entrada'>    
+          <MDBBtn onClick={() => changeValor(valor-0.5,index)} class="btn btn-outline-secondary btn-rounded">-</MDBBtn>
+          <span>{valor}</span>
+          <MDBBtn onClick={() => changeValor(valor+0.5,index)} class="btn btn-outline-secondary btn-rounded">+</MDBBtn>
       </div>
+      )})}
     </div>
-    
+
   )
 }
 

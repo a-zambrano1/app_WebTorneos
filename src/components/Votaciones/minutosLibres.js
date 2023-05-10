@@ -2,7 +2,7 @@ import React from 'react'
 import Entrada4x4 from '../../utils/entradas'
 import { useLocation } from 'react-router-dom';
 
-const MinutosLibres = ({mc1, mc2}) => {
+const MinutosLibres = ({mc1, mc2, onSaveEntradas}) => {
   
   const location = useLocation();
   
@@ -14,10 +14,10 @@ const MinutosLibres = ({mc1, mc2}) => {
           </div>  
         <div className='entradas-votacion'>
           <div className='separacion-entradas'>
-            {Array.from({length: 6}, (_,i) => <Entrada4x4 key={i} />)}
+            <Entrada4x4 numEntradas={6} onSaveEntradas={onSaveEntradas} />
           </div>
           <div className='separacion-entradas'>
-            {Array.from({length: 6}, (_,i) => <Entrada4x4 key={i} />)}
+            <Entrada4x4 numEntradas={6} onSaveEntradas={onSaveEntradas} />
           </div>
         </div>
     </div>

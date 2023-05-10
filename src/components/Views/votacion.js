@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import CerrarVotar from '../../utils/cerrarVotar'
 import { MDBBtn, MDBInput } from 'mdb-react-ui-kit'
 import { useLocation } from 'react-router-dom'
@@ -13,8 +13,34 @@ const Votacion = () => {
   
 
   const [formatoActual, setFormatoActual] = useState(0)
-  const [resultado1, setResultado1] = useState(0)
-  const [resultado2, setResultado2] = useState(0)
+  const [resultado1, setResultado1] = useState(0.0)
+  const [resultado2, setResultado2] = useState(0.0)
+
+  const [listValuesMC1, setListValuesMC1] = useState([])
+  const [listValuesMC2, setListValuesMC2] = useState([])
+  const [numEntradas,setNumEntradas] = useState(0)
+
+  const handleSaveEntradas= (idMC, index, value) => {
+    if(idMC === 0){
+      const list = [...listValuesMC1]
+      list[index] = value
+      setListValuesMC1(list)
+      const suma = list.reduce((a, b) => a + b, 0)
+      setResultado1(suma)
+      console.log(list)
+    }else{
+      const list = [...listValuesMC2]
+      list[index] = value
+      setListValuesMC2(list)
+      const suma = list.reduce((a, b) => a + b, 0)
+      setResultado2(suma)
+      console.log(list)
+    }
+  }
+
+  const handleSaveNENtradas = (value) => {
+    setNumEntradas(value)
+  }
 
   const location = useLocation();
 
@@ -22,11 +48,12 @@ const Votacion = () => {
     console.log(param.formato)
     switch (param.formato) {
       case 0:
-        return(<Votacion4x4 mc1={location.state.mc1} mc2={location.state.mc2}/>)
+        return(<Votacion4x4 mc1={location.state.mc1} mc2={location.state.mc2} onSaveEntradas={handleSaveEntradas}
+        numEnt={numEntradas} onSaveNEntr={handleSaveNENtradas} listValuesMC1={listValuesMC1} listValuesMC2={listValuesMC2} />)
       case 1:
         return(<Votacion8x8 mc1={location.state.mc1} mc2={location.state.mc2}/>)
       case 2:
-        return(<MinutosLibres mc1={location.state.mc1} mc2={location.state.mc2}/>)
+        return(<MinutosLibres mc1={location.state.mc1} mc2={location.state.mc2} onSaveEntradas={handleSaveEntradas}/>)
       case 3:
         return(<VotacionAcapella mc1={location.state.mc1} mc2={location.state.mc2}/>)
       case 4:
@@ -35,6 +62,20 @@ const Votacion = () => {
         return(<div>Componente vacío</div>)    
     } 
   }
+  useEffect(() => {
+    let lista = []
+    for(let i=0; i<numEntradas; i++){
+      lista.push(0)
+    }
+    setListValuesMC1(lista)
+    setListValuesMC2(lista)
+    setResultado1(0.0)
+    setResultado2(0.0)
+  }, [numEntradas])
+
+  useEffect(() => {
+    setNumEntradas(0)
+  }, [formatoActual])
 
  return (
     <div>
