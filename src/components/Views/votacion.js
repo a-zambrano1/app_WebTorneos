@@ -53,9 +53,10 @@ const Votacion = () => {
       case 1:
         return(<Votacion8x8 mc1={location.state.mc1} mc2={location.state.mc2}/>)
       case 2:
-        return(<MinutosLibres mc1={location.state.mc1} mc2={location.state.mc2} onSaveEntradas={handleSaveEntradas}/>)
+        return(<MinutosLibres mc1={location.state.mc1} mc2={location.state.mc2} />)
       case 3:
-        return(<VotacionAcapella mc1={location.state.mc1} mc2={location.state.mc2}/>)
+        return(<VotacionAcapella mc1={location.state.mc1} mc2={location.state.mc2} onSaveEntradas={handleSaveEntradas}
+          numEnt={numEntradas} onSaveNEntr={handleSaveNENtradas} listValuesMC1={listValuesMC1} listValuesMC2={listValuesMC2}/>)
       case 4:
         return(<VotacionKickBack mc1={location.state.mc1} mc2={location.state.mc2}/>)    
       default:
