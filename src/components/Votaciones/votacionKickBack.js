@@ -3,14 +3,18 @@ import { MDBBtn, MDBInput } from 'mdb-react-ui-kit'
 import { useState } from 'react'
 import Entrada4x4 from '../../utils/entradas'
 
-const VotacionKickBack = ({mc1,mc2}) => {
+const VotacionKickBack = ({mc1,mc2,  onSaveEntradas, numEnt = 0,onSaveNEntr, listValuesMC1, listValuesMC2}) => {
   
-  const [numEntradas,setNumEntradas] = useState(0)
-  const [entradas, setEntradas] = useState(0)
+  
+  const [entradas, setEntradas] = useState(numEnt)
 
   const renderEntrada = () => {
-    setEntradas(numEntradas);
+    onSaveNEntr(entradas)
   }
+
+const handleChangeEntradas = (idMC, index, value) => {
+  onSaveEntradas(idMC, index, value)
+}
   
   
   return (
@@ -20,7 +24,7 @@ const VotacionKickBack = ({mc1,mc2}) => {
         <span>{mc2}</span>
       </div>
       <div>
-        <MDBInput label='Ingrese número de preguntas' type='number' onChange={(e) => setNumEntradas(e.target.value)}></MDBInput>
+        <MDBInput label='Ingrese número de preguntas' type='number' onChange={(e) => setEntradas(e.target.value)}></MDBInput>
         <MDBBtn class='btn btn-success' onClick={renderEntrada}>Iniciar</MDBBtn>
       </div>
       <div>
@@ -28,11 +32,11 @@ const VotacionKickBack = ({mc1,mc2}) => {
         <div className='separacion-kickback subtitulo-kickback seccion-ida'>
           <div className='separacion-entradas'>
             <span>Pregunta</span>
-            {Array.from({length: entradas}, (_,i) => <Entrada4x4 key={i} />)}
+             <Entrada4x4 mc={0} onSaveEntradas={handleChangeEntradas} listValuesMC={listValuesMC1}/>
           </div>
           <div className='separacion-entradas'>
             <span>Respuesta</span>
-            {Array.from({length: entradas}, (_,i) => <Entrada4x4 key={i} />)}
+            <Entrada4x4 mc={1} onSaveEntradas={handleChangeEntradas} listValuesMC={listValuesMC2}/>
           </div>
         </div>
         <div className='patrones-kickback'>
@@ -44,11 +48,11 @@ const VotacionKickBack = ({mc1,mc2}) => {
         <div className='separacion-kickback subtitulo-kickback seccion-vuelta'>
         <div className='separacion-entradas'>
             <span>Respuesta</span>
-            {Array.from({length: entradas}, (_,i) => <Entrada4x4 key={i} />)}
+            <Entrada4x4 mc={0} onSaveEntradas={handleChangeEntradas} listValuesMC={listValuesMC1}/>
           </div>
           <div className='separacion-entradas'>
             <span>Pregunta</span>
-            {Array.from({length: entradas}, (_,i) => <Entrada4x4 key={i} />)}
+            <Entrada4x4 mc={1} onSaveEntradas={handleChangeEntradas} listValuesMC={listValuesMC2}/>
           </div>
         </div>
       </div>

@@ -59,7 +59,8 @@ const Votacion = () => {
         return(<VotacionAcapella mc1={location.state.mc1} mc2={location.state.mc2} onSaveEntradas={handleSaveEntradas}
           numEnt={numEntradas} onSaveNEntr={handleSaveNENtradas} listValuesMC1={listValuesMC1} listValuesMC2={listValuesMC2}/>)
       case 4:
-        return(<VotacionKickBack mc1={location.state.mc1} mc2={location.state.mc2}/>)    
+        return(<VotacionKickBack mc1={location.state.mc1} mc2={location.state.mc2} onSaveEntradas={handleSaveEntradas}
+          numEnt={numEntradas} onSaveNEntr={handleSaveNENtradas} listValuesMC1={listValuesMC1} listValuesMC2={listValuesMC2}/>)    
       default:
         return(<div>Componente vacío</div>)    
     } 
