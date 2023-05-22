@@ -13,6 +13,10 @@ const ListaTorneos = () => {
         </div>
         <CardTorneo nombreTorneo='Torneo 1'/>
         <CardTorneo nombreTorneo='Torneo 2'/>
+        <CardTorneo nombreTorneo='Torneo 3'/>
+        <CardTorneo nombreTorneo='Torneo 4'/>
+        <CardTorneo nombreTorneo='Torneo 5'/>
+        <CardTorneo nombreTorneo='Torneo 6'/>
         <button type="button" class="btn btn-info" onClick={() => navigate('/welcome')}>Atrás</button>
     </div>
   )
