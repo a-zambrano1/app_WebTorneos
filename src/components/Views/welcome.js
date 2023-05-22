@@ -29,7 +29,7 @@ const Welcome = () => {
         </div>
         <div className='seccion-hacer'>
             <div>
-                <MDBBtn rounded color='success' size='lg' onClick={() => navigate('/adminTorneo')}>Ir a tus Torneos</MDBBtn>
+                <MDBBtn rounded color='success' size='lg' onClick={() => navigate('/listaTorneos')}>Ir a tus Torneos</MDBBtn>
             </div>
          </div>
         <div className='menu-opciones'>

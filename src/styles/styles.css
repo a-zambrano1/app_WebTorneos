@@ -384,3 +384,26 @@ select{
     -webkit-text-fill-color: white;
     -webkit-text-stroke: 1px black;
 }
+
+.card-torneo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    width: 400px;
+    gap: 20px;
+    padding: 10px;
+    background-color: #28a745;
+    border: 2px gray;
+    font-size: x-large;
+    font-weight: 600;
+}
+
+.titulo-ultimos-torneos{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}

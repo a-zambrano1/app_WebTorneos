@@ -15,6 +15,7 @@ import AdminInformacion from '../Admin-components/adminInformacion';
 import InicioVotar from '../Views/votar';
 import Votacion from '../Views/votacion';
 import MinutosLibres from '../Votaciones/minutosLibres';
+import ListaTorneos from '../Views/listaTorneos';
 export default App; 
 
 
@@ -37,6 +38,7 @@ function App() {
           <Route path='/InicioVotar' element={<InicioVotar/>}/>
           <Route path='/votar' element={<Votacion/>}/>
           <Route path='/votarMinutos' element={<MinutosLibres/>} />
+          <Route path='/listaTorneos' element={<ListaTorneos />}/>
         </Routes>
       </BrowserRouter>
     </div>
