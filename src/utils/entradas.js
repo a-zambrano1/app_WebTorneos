@@ -1,9 +1,14 @@
 import { MDBBtn } from 'mdb-react-ui-kit'
 
 const Entrada4x4 = ({mc, onSaveEntradas, listValuesMC}) => {
+  
   const changeValor = (valor, index) => {
-    onSaveEntradas(mc, index, valor)
+    if((valor >= 0 && valor <= 4)){
+      onSaveEntradas(mc, index, valor)
+    }
+    
   }
+
   return (
     <div>
       {listValuesMC.map((valor,index) => {
