@@ -119,6 +119,7 @@ const RegistroUser = () => {
         />
           <MDBInput
           label="Ingresar Correo"
+          type='email'
           id="email"
           style={{height:25}}
           onChange={(e) => setEmail(e.target.value)}

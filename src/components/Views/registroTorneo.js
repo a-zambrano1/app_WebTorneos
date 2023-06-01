@@ -1,6 +1,7 @@
 import { MDBBtn, MDBIcon, MDBInput } from 'mdb-react-ui-kit';
 import React from 'react';
 import { useState } from 'react';
+import { getAuth } from "firebase/auth";
 
 const RegistroTorneo = () => {
   
@@ -8,43 +9,29 @@ const RegistroTorneo = () => {
   const [tipo, setTipo_Torneo] = useState("liga");
   const [descripcion, setDescripcion] = useState("");
   const [numero_fechas, setNumeroFechas] = useState("");
-
+  const auth = getAuth();
+  const email_admin = auth.currentUser.email;
 
     const TorneoPost = async (e) =>{  
-      console.log("Entre al perreo")
+      console.log("Eviando informacion a la BD...")
       try {
         let result = await fetch(
           'http://localhost:5000/api/torneos', {
               method: "post",
-              body: JSON.stringify({nombre_competencia,tipo,numero_fechas, descripcion}),
+              body: JSON.stringify({nombre_competencia,tipo,numero_fechas, descripcion, email_admin}),
               headers: {
                   'Content-Type': 'application/json'
               }
-          })
-          console.log(result)
+          })         
           result = await result.json();
+          console.log(result);
           console.warn(result);
       } catch (error) {
         console.log(error);
       }
     }
 
-    const  TorneoGet = async (e) =>{
-      console.log("Entre al perreo")
-      try {
-        let result = await fetch(
-          'http://localhost:5000/api/torneos', {
-              method: "get",
-              headers: {
-                  'Content-Type': 'application/json'
-              }
-          })
-          result = await result.json();
-          console.warn(result);
-      } catch (error) {
-        console.log(error);
-      }
-    }
+    
 
   
   return (
@@ -67,12 +54,14 @@ const RegistroTorneo = () => {
         <MDBInput wrapperClass='mb-4' 
           style={{height:25, width:135}} 
           label='Nombre del torneo'
+          type='text'
           id="nombre_torneo"
           onChange={(e) => setNombreTorneo(e.target.value)}
           ></MDBInput>
         <select class="form-select" 
           style={{height:45, width:90}} 
           aria-label="Default select example"
+          type='text'
           label='Tipo de torneo'
           id="tipo"
           onChange ={(e) => setTipo_Torneo(e.target.value)}
@@ -85,6 +74,7 @@ const RegistroTorneo = () => {
           <MDBInput wrapperClass='mb-4'
             style={{height:40}} 
             size='lg'
+            type='number'
             id="numero_mcs"
             label='Número de MCs'
             >
@@ -92,11 +82,13 @@ const RegistroTorneo = () => {
           <MDBInput wrapperClass='mb-4' 
             style={{height:40}} 
             label='Número de Fechas'
+            type='number'
             id="numero_fechas"
             onChange={(e) => setNumeroFechas(e.target.value)}>
           </MDBInput>
           <MDBInput wrapperClass='mb-4' 
             tyle={{height:40}} 
+            type='number'
             label='Número de Jueces'
             id="numero_jueces"
             >
@@ -104,6 +96,7 @@ const RegistroTorneo = () => {
           <MDBInput wrapperClass='mb-4' 
             style={{height:45}} 
             id="descripcion"
+            type='text'
             label='Descripción del Torneo'
             onChange={(e) => setDescripcion(e.target.value)}></MDBInput>
       </div>  
