@@ -4,13 +4,14 @@ import { MDBBtn } from 'mdb-react-ui-kit';
 import micro from '../../media/micro.png'
 import trofeo from '../../media/trophy.png'
 import { getAuth} from 'firebase/auth';
+import { set } from 'firebase/database';
 
 
 
 
 const Welcome = () => {
     const navigate = useNavigate();
-    const [nombreUsuario, setNombreUsuario] = useState('Admin');
+    const [aka, setAka] = useState('');
     const auth = getAuth();
     const email_admin = auth.currentUser.email;
 
@@ -18,7 +19,7 @@ const Welcome = () => {
         if (!auth.currentUser) {
             navigate('/login');
         }else{
-            setNombreUsuario(auth.currentUser.displayName);
+            setAka(auth.currentUser.email);
         }
     }, [])
 
@@ -34,7 +35,10 @@ const Welcome = () => {
                 }
             })
             result = await result.json();
-            console.log(result);
+            const data = Object.values(result)
+            const aka = data[1][0]
+            setAka(aka);	
+            console.log(aka);
         } catch (error) {
           console.log(error);
         }
@@ -42,7 +46,7 @@ const Welcome = () => {
 
       useEffect((e) => {
         TorneoGet(e);
-        setNombreUsuario();
+        aka.toString();
         }, [])
 
   return (
@@ -56,7 +60,7 @@ const Welcome = () => {
       </div>
         <div className='seccion-hacer'>
             <div>
-                <span className='titulos-inicio'>Hola {auth.currentUser.email}</span>
+                <span className='titulos-inicio'>Hola {aka.toString()}</span>
             </div>
             <div>
                 <span>¿Qué quieres hacer el día de hoy?</span>
