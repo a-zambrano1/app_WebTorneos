@@ -43,8 +43,9 @@ const Inicio = () => {
         <div>
           <span className='titulos-inicio'>Últimos Torneos!</span>
         </div>
-        <div className='bienvenido'>
-          <span className='titulos-inicio1'>Lista de Torneos</span>
+        <br/>
+        <div>
+          <MDBBtn onClick={()=>navigate()} rounded color='success' size='lg'> Lista de Torneos</MDBBtn>
         </div>
       </div>
       <div className='menu-opciones'>

@@ -271,17 +271,16 @@ select{
 .header-admin-torneos{
     display: flex;
     flex-direction: row;
-    gap: 25px;
-    justify-content: space-evenly;
+    gap: 100px;
+    justify-content: space-between;
     margin: 20px;
 }
 
 .frame-votacion{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin: 10px;
-    gap: 20px;
 }
 
 .opcionsitas{

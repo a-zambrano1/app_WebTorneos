@@ -30,13 +30,13 @@ const TablaCompetidores = () => {
           
   
   return (
-    <div>
+    <div className='recuadro2 debug'>
         <MDBTable striped hover align='middle' >
       <MDBTableHead>
         <tr>
-            <th scope='col'>Nombre/AKA del Juez</th>
+            <th scope='col'>Nombre/AKA del Competidor</th>
             <th>
-              <MDBBtn color='link' rounded size='sm'>
+              <MDBBtn color='success' rounded size='sm'>
                 Agregar Participante
               </MDBBtn>
             </th>
