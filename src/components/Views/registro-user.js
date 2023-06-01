@@ -25,8 +25,8 @@ const RegistroUser = () => {
     const auth = getAuth();
 
     const registroCompleto = async (e) => { 
-      testeoLoginPost(e);
       nuevoRegistro();
+      testeoLoginPost(e);
     }
 
     const nuevoRegistro = async () => {
