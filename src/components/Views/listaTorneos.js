@@ -19,7 +19,7 @@ const ListaTorneos = () => {
   console.log(email_admin)
   try {
     let result = await fetch(
-      'http://localhost:5000/api/torneos/busqueda/' + email_admin, {
+      'http://localhost:5000/api/torneos/busquedaNombres/' + email_admin, {
           method: "get",
           headers: {
               'Content-Type': 'application/json'
