@@ -5,15 +5,19 @@ import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import App from './components/App/App';
 import reportWebVitals from './web/reportWebVitals';
+import { FirebaseAppProvider } from 'reactfire';
+import firebaseConfig from './firebase/firebase-config';
 import micro from './media/micro.png'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <div className='pag-bienvenida'><link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Outfit"/>
-      <App />
-    </div>
+    <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+      <div className='pag-bienvenida'><link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Outfit"/>
+        <App />
+      </div>
+    </FirebaseAppProvider>
   </React.StrictMode>
 );
 

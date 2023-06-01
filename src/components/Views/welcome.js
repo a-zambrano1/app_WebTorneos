@@ -1,14 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom/dist';
 import { MDBBtn } from 'mdb-react-ui-kit';
 import micro from '../../media/micro.png'
 import trofeo from '../../media/trophy.png'
+import { getAuth} from 'firebase/auth';
+
+
 
 
 const Welcome = () => {
     const navigate = useNavigate();
+    const [nombreUsuario, setNombreUsuario] = useState('Admin');
+    const auth = getAuth();
 
-    
+    useEffect(() => {
+        if (!auth.currentUser) {
+            navigate('/login');
+        }else{
+            setNombreUsuario(auth.currentUser.displayName);
+        }
+    }, [])
 
   return (
     <div className='pag-bienvenida'>
@@ -21,7 +32,7 @@ const Welcome = () => {
       </div>
         <div className='seccion-hacer'>
             <div>
-                <span className='titulos-inicio'>Hola @Admin, ¿Qué quieres hacer el día de hoy?</span>
+                <span className='titulos-inicio'>Hola {nombreUsuario}, ¿Qué quieres hacer el día de hoy?</span>
             </div>
             <div>
                 <MDBBtn onClick={()=>navigate('/InicioVotar')} rounded color='success' size='lg'> ¡Votación Rápida!</MDBBtn>

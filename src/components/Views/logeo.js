@@ -9,8 +9,7 @@ import {
   signInWithPopup
 } from "firebase/auth";
 import { useState } from "react";
-import SweetAlert from "sweetalert";
-import { Navigate,useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import '../../styles/styles.css'
 import { MDBBtn, MDBIcon, MDBInput } from "mdb-react-ui-kit";
 import { toast } from "react-toastify";
@@ -52,7 +51,7 @@ export default (props) => {
       })
       .catch((error) => {
         const errorCode = error.code;
-        //console.log(errorCode);
+        
         if (errorCode === "auth/wrong-password") {
           console.log("Contraseña incorrecta");
         }
@@ -72,6 +71,7 @@ export default (props) => {
         const token = credential.accessToken;
         const user = result.user;
         state.isAdmin = false;
+        console.log(result.user.displayName)
         navigate('/welcome');
       })
       .catch((error) => {
