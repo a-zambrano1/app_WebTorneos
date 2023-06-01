@@ -12,6 +12,7 @@ const Welcome = () => {
     const navigate = useNavigate();
     const [nombreUsuario, setNombreUsuario] = useState('Admin');
     const auth = getAuth();
+    const email_admin = auth.currentUser.email;
 
     useEffect(() => {
         if (!auth.currentUser) {
@@ -20,6 +21,29 @@ const Welcome = () => {
             setNombreUsuario(auth.currentUser.displayName);
         }
     }, [])
+
+    const  TorneoGet = async (e) =>{
+        console.log("Trayendo usuarios de la BD...")
+        console.log(email_admin)
+        try {
+          let result = await fetch(
+            'http://localhost:5000/api/usuarios/busqueda/' + email_admin, {
+                method: "get",
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            result = await result.json();
+            console.log(result);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      useEffect((e) => {
+        TorneoGet(e);
+        setNombreUsuario();
+        }, [])
 
   return (
     <div className='recuadro2 debug'>
@@ -32,7 +56,10 @@ const Welcome = () => {
       </div>
         <div className='seccion-hacer'>
             <div>
-                <span className='titulos-inicio'>Hola {nombreUsuario}, ¿Qué quieres hacer el día de hoy?</span>
+                <span className='titulos-inicio'>Hola {auth.currentUser.email}</span>
+            </div>
+            <div>
+                <span>¿Qué quieres hacer el día de hoy?</span>
             </div>
             <br/>
             <div>

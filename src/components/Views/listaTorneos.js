@@ -38,7 +38,7 @@ const ListaTorneos = () => {
   }
 }
 
-  
+  //Esperar a la ayuda del pana [] para que funcione el useEffect xd
   const torneosArray = (e) => {
     TorneoGet(e);
     <CardTorneo nombreTorneo='prueba'/>
@@ -54,7 +54,9 @@ const ListaTorneos = () => {
         </span>
         </div>
         <MDBBtn rounded color='success' size='lg' onClick={(e) => torneosArray(e)}>Mostrar Torneos</MDBBtn>
-
+        <CardTorneo nombreTorneo='Liga Mentos'/>
+        <CardTorneo nombreTorneo='UdeRAP'/>
+        <CardTorneo nombreTorneo='Batalla de Campeones'/>
         <MDBBtn onClick={()=>navigate('/welcome')} rounded color='success' size='lg'> Atrás</MDBBtn>
         <br/>
     </div>
