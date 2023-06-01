@@ -24,8 +24,6 @@ const RegistroTorneo = () => {
               }
           })         
           result = await result.json();
-          console.log(result);
-          console.warn(result);
       } catch (error) {
         console.log(error);
       }

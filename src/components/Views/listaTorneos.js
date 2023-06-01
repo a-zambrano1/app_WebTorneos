@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CardTorneo from '../../utils/cardTorneo'
 import { useNavigate } from 'react-router-dom';
 import { getAuth } from "firebase/auth";
 import { MDBBtn } from 'mdb-react-ui-kit';
+import { useState } from 'react';
+import { set } from 'firebase/database';
 
 const ListaTorneos = () => {
  
@@ -10,10 +12,11 @@ const ListaTorneos = () => {
   
  const auth = getAuth();
  const email_admin = auth.currentUser.email;
+ const [torneos, setTorneos] = useState([]);
 
  const  TorneoGet = async (e) =>{
   console.log("Trayendo torneos de la BD...")
-  //console.log('http://localhost:5000/api/torneos/busqueda/' + email)
+  console.log(email_admin)
   try {
     let result = await fetch(
       'http://localhost:5000/api/torneos/busqueda/' + email_admin, {
@@ -23,11 +26,23 @@ const ListaTorneos = () => {
           }
       })
       result = await result.json();
-      console.warn(result);
+      const torneos = Object.values(result) 
+      const newArray = [];
+      for(const [index, value] of torneos.entries()){
+        newArray.push(value);
+      }
+      setTorneos(newArray);
+      console.log(torneos[1]);
   } catch (error) {
     console.log(error);
   }
 }
+
+  
+  const torneosArray = (e) => {
+    TorneoGet(e);
+    <CardTorneo nombreTorneo='prueba'/>
+  }
 
 
 
@@ -36,8 +51,7 @@ const ListaTorneos = () => {
         <div className='titulo-ultimos-torneos'>
             <h1 style={{color:'black'}}>Tus Torneos</h1>
         </div>
-        <MDBBtn rounded color='success' size='lg' onClick={(e) => TorneoGet(e)}>Recargar Torneos</MDBBtn>
-        <CardTorneo nombreTorneo='Torneo 1'/>
+        <MDBBtn rounded color='success' size='lg' onClick={(e) => torneosArray(e)}>Mostrar Torneos</MDBBtn>
         <button type="button" class="btn btn-info" onClick={() => navigate('/welcome')}>Atrás</button>
     </div>
   )
