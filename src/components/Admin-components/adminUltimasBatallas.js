@@ -4,7 +4,7 @@ import HeaderAdminTorneo from '../../utils/headerAdminTorneo'
 
 const AdminUltimasBatallas = () => {
   return (
-    <div>
+    <div className='recuadro2 debug'>
         <HeaderAdminTorneo/>
         <NavbarAdmin/>
         Ultimas batallas

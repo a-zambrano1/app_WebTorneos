@@ -47,12 +47,16 @@ const ListaTorneos = () => {
 
 
  return (
-    <div>
+  <div className='recuadro2 debug'>
         <div className='titulo-ultimos-torneos'>
-            <h1 style={{color:'black'}}>Tus Torneos</h1>
+            <span className='raprumble'>Mis 
+          <span className='raprumble1'>Torneos</span>
+        </span>
         </div>
-        <MDBBtn rounded color='success' size='lg' onClick={(e) => torneosArray(e)}>Mostrar Torneos</MDBBtn>
-        <button type="button" class="btn btn-info" onClick={() => navigate('/welcome')}>Atrás</button>
+        <MDBBtn rounded color='success' size='lg' onClick={(e) => TorneoGet(e)}>Recargar Torneos</MDBBtn>
+        <CardTorneo nombreTorneo='Torneo 1'/>
+        <MDBBtn onClick={()=>navigate('/welcome')} rounded color='success' size='lg'> Atrás</MDBBtn>
+        <br/>
     </div>
   )
 }

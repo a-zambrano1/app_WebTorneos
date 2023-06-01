@@ -82,6 +82,7 @@ const RegistroUser = () => {
     }
 
   return (
+    <div className='recuadro2 debug'>
     <div>
       <br/>
       <div>
@@ -135,15 +136,11 @@ const RegistroUser = () => {
         />
         <MDBBtn onClick={(e) => registroCompleto(e)} rounded color='success' size='lg'>Registrar</MDBBtn>
         <div className='ingreso-correo'>
-          <span>-------- O Registrarse con --------</span>
-          <br/>
-          <div className="opciones-login">
-            <MDBIcon fab icon='google' className="me-2" size="lg" style={{backgroundColor: '#dd4b39'}} href="#" />
-          </div>
           <br/>
         </div>
         </div>  
       </section> 
+    </div>
     </div>
   )
 }

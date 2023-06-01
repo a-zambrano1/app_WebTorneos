@@ -81,7 +81,8 @@ const Votacion = () => {
   }, [formatoActual])
 
  return (
-    <div>
+  <div className='recuadro2 debug'>
+    <div >
         <CerrarVotar/>
         <div className= 'header-admin-torneos'>
             <text className='titulo-login'>4x4 <MDBBtn rounded color='success' size='lg' style={{width:50, height:50}} onClick={() => setFormatoActual(0)}>
@@ -97,6 +98,8 @@ const Votacion = () => {
       </div>
        <CambioFormato formato={formatoActual}/>
        <ResultadoVotaciones resultado1={resultado1} resultado2={resultado2} />
+    </div>
+    <br/>
     </div>
   )
 }
