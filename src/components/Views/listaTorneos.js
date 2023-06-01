@@ -53,8 +53,8 @@ const ListaTorneos = () => {
           <span className='raprumble1'>Torneos</span>
         </span>
         </div>
-        <MDBBtn rounded color='success' size='lg' onClick={(e) => TorneoGet(e)}>Recargar Torneos</MDBBtn>
-        <CardTorneo nombreTorneo='Torneo 1'/>
+        <MDBBtn rounded color='success' size='lg' onClick={(e) => torneosArray(e)}>Mostrar Torneos</MDBBtn>
+
         <MDBBtn onClick={()=>navigate('/welcome')} rounded color='success' size='lg'> Atrás</MDBBtn>
         <br/>
     </div>
