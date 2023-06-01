@@ -14,7 +14,7 @@ const CardTorneo = ({nombreTorneo}) => {
         <p style={{color:'white'}}>{nombreTorneo}</p>
         <div>
             <img src={borrar} width={20} height={20}/>
-            <img src={cerrar_sesion} width={20} height={20} onClick={() => navigate('/adminTorneo')}/>
+            <img src={cerrar_sesion} width={20} height={20} onClick={() => navigate('/adminInicio')}/>
         </div>
             
     </div>

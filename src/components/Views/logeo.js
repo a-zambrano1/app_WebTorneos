@@ -84,9 +84,10 @@ export default (props) => {
   };
 
   return (
+    <div className='recuadro2 debug'>
     <div>
       <br/>
-      <div>
+      <div >
         <a className='regresar' onClick={()=>navigate('/') }>« Regresar</a>
       </div>
       <br/>
@@ -115,9 +116,6 @@ export default (props) => {
           style={{height:25}}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <div className='texto-olvidar-password'>
-          <span>Olvidaste tu contraseña?</span>
-        </div>
           <MDBBtn rounded color='success' 
           size='lg'
           onClick={Ingreso}>
@@ -137,9 +135,11 @@ export default (props) => {
             <span>¿No estás registrado aún?</span>
             <a onClick={()=>navigate('/registro_usuario')}>Crear Cuenta</a>
           </div>
+          <br/>
         </div>
       </div>
     </section>
+    </div>
     </div>
   );
 };

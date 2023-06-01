@@ -12,6 +12,7 @@ const Inicio = () => {
 
 
   return (
+  <div className='recuadro2 debug'>
     <div className='pag-bienvenida'>
       <div className='bienvenido'>
         <img src = {micro} width = {96} height = {94}/>
@@ -52,6 +53,7 @@ const Inicio = () => {
         </MDBBtn>
       </div>
     </div>
+  </div>  
   )
 }
 

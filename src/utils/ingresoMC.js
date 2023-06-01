@@ -12,9 +12,10 @@ const IngresoMC = () => {
   
   const navigate = useNavigate()
   return (
-    <div>
+    <div className='recuadro2 debug'>
         <CerrarVotar/>
-        <span>Ingrese AKA de los Competidores</span>
+        <span>Ingrese A.K.A de los Competidores</span>
+        <br/>
         <div>
         <MDBInput
           label="Ingresar MC No.1"
@@ -29,11 +30,13 @@ const IngresoMC = () => {
           onChange={(e) => setMC2(e.target.value)}
         />
         </div>
+        <br/>
         <MDBBtn className='titulo-login' 
         rounded color='success' 
         size='lg'
         onClick={() => navigate('/votar',  {state:{mc1: mc1, mc2: mc2}})}
         >Iniciar Votación</MDBBtn>
+        <br/>
       </div>
   )
 }

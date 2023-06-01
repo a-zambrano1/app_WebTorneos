@@ -69,7 +69,34 @@ input{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 28px;
     gap: 12px;
+    margin-bottom: 45px;
+}
+
+.recuadro{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 45px;  
+    border-radius: 28px;
+    border-color: rgb(201, 193, 193);
+    border-width: 2px;
+}
+
+.recuadro2{
+    display: flex;
+    margin-top: 45px;  
+    border-radius: 28px;
+    width: 120%;
+    border-color: rgb(201, 193, 193);
+    border-width: 2px;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .titulo-rap-rumble{
@@ -193,7 +220,6 @@ input{
 .pag-torneo{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     padding: 10px;
 }
 
@@ -246,15 +272,16 @@ select{
     display: flex;
     flex-direction: row;
     gap: 25px;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin: 20px;
 }
 
 .frame-votacion{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin: 10px;
+    gap: 20px;
 }
 
 .opcionsitas{
@@ -392,6 +419,7 @@ select{
     align-items: center;
     margin: 10px;
     width: 400px;
+    border-radius: 28px;
     gap: 20px;
     padding: 10px;
     background-color: #28a745;

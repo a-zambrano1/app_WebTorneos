@@ -35,6 +35,7 @@ const RegistroTorneo = () => {
 
   
   return (
+    <div className='recuadro2 debug'>
     <div className='pag-torneo'>
       <br/>
       <div>
@@ -101,6 +102,8 @@ const RegistroTorneo = () => {
             onChange={(e) => setDescripcion(e.target.value)}></MDBInput>
       </div>  
       <MDBBtn onClick={(e) => TorneoPost(e)} rounded color='success' size='lg'>Registrar</MDBBtn>
+    </div>
+    <br/>
     </div>
   )
 }

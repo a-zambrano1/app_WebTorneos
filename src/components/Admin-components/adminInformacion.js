@@ -3,7 +3,7 @@ import HeaderAdminTorneo from '../../utils/headerAdminTorneo'
 
 const AdminInformacion = () => {
   return (
-    <div>
+    <div className='recuadro2 debug'>
         <HeaderAdminTorneo/>
         <NavbarAdmin/>
         <div>
