@@ -1,4 +1,6 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { useState } from 'react';
 import {
     getAuth,
@@ -9,7 +11,6 @@ import {
     GoogleAuthProvider,
     signInWithPopup
   } from "firebase/auth";
-  import auth from "../../firebase/firebase";
 import { MDBBtn, MDBIcon, MDBInput } from 'mdb-react-ui-kit';
 
 const RegistroUser = () => {
@@ -19,23 +20,21 @@ const RegistroUser = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [roles, setRoles] = useState(['normal']);
-  
+    const navigate = useNavigate();
+
+    const auth = getAuth();
     const nuevoRegistro = async () => {
         await createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        alert("Cuenta registrada, ahora puedes iniciar")
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        if (errorCode === "auth/weak-password") {
-          alert("Contraseña insegura, debe ser de al menos 6 caracteres.")
-        }
-        if (errorCode === "auth/email-already-in-use") {
-          alert("El correo ya se encuentra registrado.")
-        }
-      });
+        .then((userCredential) => {
+          const user = userCredential.user;
+          toast.success("Usuario registrado con éxito");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          console.log(errorCode);
+          const errorMessage = error.message;
+          // ..
+        });
     }
 
 
@@ -127,7 +126,7 @@ const RegistroUser = () => {
           style={{height:25}}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <MDBBtn onClick={(e) => testeoLoginPost(e)} rounded color='success' size='lg'>Registrar</MDBBtn>
+        <MDBBtn onClick={(e) => nuevoRegistro(e)} rounded color='success' size='lg'>Registrar</MDBBtn>
         <div className='ingreso-correo'>
           <span>-------- O Registrarse con --------</span>
           <br/>

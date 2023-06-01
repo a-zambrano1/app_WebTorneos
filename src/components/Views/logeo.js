@@ -1,5 +1,4 @@
 import state from "../../state.js";
-import auth from "../../firebase/firebase.js";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -14,6 +13,7 @@ import SweetAlert from "sweetalert";
 import { Navigate,useNavigate } from "react-router-dom";
 import '../../styles/styles.css'
 import { MDBBtn, MDBIcon, MDBInput } from "mdb-react-ui-kit";
+import { toast } from "react-toastify";
 
 
 
@@ -21,69 +21,43 @@ export default (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const auth = getAuth();
+
   const Registro = async () => {
     state.isAdmin = false;
     
-    await createUserWithEmailAndPassword(auth, email, password)
+    
+    createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        state.islogged = true;
-        SweetAlert({
-          title: "Registrado con éxito",
-          text: "Cuenta registrada, ahora puedes iniciar",
-          icon: "success",
-        });
+        toast.success("Usuario registrado con éxito");
+        navigate('/welcome');
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        if (errorCode === "auth/weak-password") {
-          SweetAlert({
-            title: "Error al registrarse",
-            text: "Contraseña insegura, debe ser de al menos 6 caracteres.",
-            icon: "error",
-          });
-        }
-        if (errorCode === "auth/email-already-in-use") {
-          SweetAlert({
-            title: "Error al registrarse",
-            text: "El correo ya se encuentra registrado.",
-            icon: "error",
-          });
-        }
+        // ..
       });
   };
+
 
   const Ingreso = async() => {
     setPersistence(auth, browserLocalPersistence);
     signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
+      .then((result) => {
         state.islogged = true;
         state.isAdmin = true;
-        
-        SweetAlert({
-          title: "Inicio de sesión",
-          text: "Sesión iniciada",
-          icon: "success",
-        });
+        console.log(result.user.uid)
         navigate('/welcome');
       })
       .catch((error) => {
         const errorCode = error.code;
         //console.log(errorCode);
         if (errorCode === "auth/wrong-password") {
-          SweetAlert({
-            title: "Error al iniciar sesión",
-            text: "Correo y/o contraseña incorrecta.",
-            icon: "error",
-          });
+          console.log("Contraseña incorrecta");
         }
         if (errorCode === "auth/user-not-found") {
-          SweetAlert({
-            title: "Error al iniciar sesión",
-            text: "Correo no registrado.",
-            icon: "error",
-          });
+          console.log("Usuario no encontrado");
         }
       });
 
@@ -144,7 +118,9 @@ export default (props) => {
         <div className='texto-olvidar-password'>
           <span>Olvidaste tu contraseña?</span>
         </div>
-          <MDBBtn rounded color='success' size='lg'>
+          <MDBBtn rounded color='success' 
+          size='lg'
+          onClick={Ingreso}>
             <span>Ingresar </span>
             <i class="fas fa-right-to-bracket"></i>
           </MDBBtn>
