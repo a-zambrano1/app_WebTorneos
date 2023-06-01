@@ -23,6 +23,12 @@ const RegistroUser = () => {
     const navigate = useNavigate();
 
     const auth = getAuth();
+
+    const registroCompleto = async (e) => { 
+      testeoLoginPost(e);
+      nuevoRegistro();
+    }
+
     const nuevoRegistro = async () => {
         await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -39,10 +45,10 @@ const RegistroUser = () => {
 
 
     const testeoLoginPost = async (e) =>{
-      console.log("Entre al perreo")
+      console.log("Se accede al post")
       try {
         const response = await fetch(
-          'http://localhost:5000/api/votaciones', { 
+          'http://localhost:5000/api/usuarios', { 
               method: "post",
               headers: {
                   'Content-Type': 'application/json'
@@ -126,7 +132,7 @@ const RegistroUser = () => {
           style={{height:25}}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <MDBBtn onClick={(e) => nuevoRegistro(e)} rounded color='success' size='lg'>Registrar</MDBBtn>
+        <MDBBtn onClick={(e) => registroCompleto(e)} rounded color='success' size='lg'>Registrar</MDBBtn>
         <div className='ingreso-correo'>
           <span>-------- O Registrarse con --------</span>
           <br/>
