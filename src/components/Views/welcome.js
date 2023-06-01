@@ -19,7 +19,7 @@ const Welcome = () => {
         if (!auth.currentUser) {
             navigate('/login');
         }else{
-            setAka(auth.currentUser.email);
+            setAka(aka.toString());
         }
     }, [])
 
@@ -36,8 +36,8 @@ const Welcome = () => {
             })
             result = await result.json();
             const data = Object.values(result)
-            const aka = data[1][0]
-            setAka(aka);	
+            const aka = data[1].aka
+            setAka(aka.toString());	
             console.log(aka);
         } catch (error) {
           console.log(error);
