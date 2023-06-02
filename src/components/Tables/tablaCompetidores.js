@@ -2,13 +2,16 @@ import React from 'react'
 import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import { useState, useEffect } from 'react';
 import imgJuez from '../../media/Frame 15.png'
+import { getAuth } from 'firebase/auth';
 
 const TablaCompetidores = () => {
-     
+  const auth = getAuth();
+  const email_admin = auth.currentUser.email;
+  const nameTournament = 'UdeRap 2023'   
       const [competidores, setCompetidores] = useState([])
       const getJueces = async() => {
         try {
-          let result = await fetch('http://localhost:5000/api/torneos/nombre', {
+          let result = await fetch('http://localhost:5000/api/torneos/busqueda/' + email_admin + '/' + nameTournament, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
