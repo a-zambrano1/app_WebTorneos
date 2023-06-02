@@ -83,8 +83,7 @@ const Welcome = () => {
             <div>
                 <MDBBtn onClick={()=>navigate('/login')} rounded color='success' size='lg'> Cerrar Sesión</MDBBtn>
             </div>
-         </div>
-        <br/>  
+         </div>  
         <div className='menu-opciones'>
             <MDBBtn className='titulo-login' rounded color='success' size='lg'  onClick={()=>navigate('/registro_torneo')}> Registrar Torneo
                 <img src = {trofeo} width = {72} height = {70}/>

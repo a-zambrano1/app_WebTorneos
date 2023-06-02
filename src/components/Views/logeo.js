@@ -203,8 +203,7 @@ export default (props) => {
       </div>
     </section>
     </div>
-    <Button onClick={() => setOpen(true)}>Open modal</Button>
-    <Button onClick={() => notify("warning","hola mundo")}>test toast</Button>
+    
         <Modal
       show={open}
       onHide={() => setOpen(false)}

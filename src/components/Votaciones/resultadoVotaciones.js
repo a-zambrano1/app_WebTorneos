@@ -19,7 +19,6 @@ const ResultadoVotaciones = ({resultado1, resultado2}) => {
         <span>{resultado1}</span>
         <span>{resultado2}</span>
       </div>
-      <MDBBtn onClick={guardar} className='btn btn-success'>Guardar</MDBBtn>
     </div>
   )
 }
