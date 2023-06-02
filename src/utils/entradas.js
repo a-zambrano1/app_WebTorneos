@@ -10,7 +10,7 @@ const Entrada4x4 = ({mc, onSaveEntradas, listValuesMC}) => {
   }
 
   return (
-    <div>
+    <div >
       {listValuesMC.map((valor,index) => {
         return(
         <div key={index} className='entrada'>    

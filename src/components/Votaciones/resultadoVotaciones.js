@@ -13,7 +13,7 @@ const ResultadoVotaciones = ({resultado1, resultado2}) => {
   }
   
   return (
-    <div>
+    <div >
       <span className='titulo-resultados'>RESULTADOS</span>
       <div className='recuadro-resultado texto-resultado'>
         <span>{resultado1}</span>

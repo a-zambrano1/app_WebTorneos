@@ -280,6 +280,7 @@ select{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: 15px;
     margin: 10px;
 }
 
@@ -328,6 +329,7 @@ select{
     justify-content: space-between;
     gap: 20px;
     padding: 10px;
+    border-radius: 28px;
     background-color: #64c27b;
     border: 1px gray;
 }
@@ -351,6 +353,7 @@ select{
     display: flex;
     flex-direction: row;
     gap: 20px;
+    border-radius: 28px;
     justify-content: space-between;
     align-items: center;
 }
@@ -389,6 +392,7 @@ select{
 .titulo-resultados{
     font-size: x-large;
     font-weight: 700;
+    
     text-align: start;
 }
 
@@ -399,6 +403,7 @@ select{
     align-items: center;
     margin: 10px;
     gap: 20px;
+    border-radius: 28px;
     padding: 10px;
     background-color: #64c27b;
     border: 2px gray;
@@ -407,6 +412,7 @@ select{
 .texto-resultado{
     font-size: 24px;
     font-weight: 700;
+    
     -webkit-text-fill-color: white;
     -webkit-text-stroke: 1px black;
 }

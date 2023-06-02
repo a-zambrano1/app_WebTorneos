@@ -214,11 +214,11 @@ export default (props) => {
     >
       <Modal.Header closeButton>
         <Modal.Title>
-          INGRESO DEL AKA
+          INGRESO DEL A.K.A
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <MDBInput label='Ingrese su AKA' type="text" style={{height:60}} onChange={(e) => setAka(e.target.value)} />
+        <MDBInput label='Ingrese su A.K.A' type="text" style={{height:60}} onChange={(e) => setAka(e.target.value)} />
       </Modal.Body>
       <Modal.Footer>
           <br></br>

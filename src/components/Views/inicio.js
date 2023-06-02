@@ -20,16 +20,7 @@ const Inicio = () => {
         <span>Rap Rumble! </span>
         </span>         
       </div>
-      <div className='busqueda-torneos'>
-        <MDBInput
-          label=" 🔍︎ Buscar torneo..."
-          id="buscar"
-          style={{height:25}}
-        />
-        <MDBBtn rounded color='success' size='lg' style={{width:100}}> 
-          <i className="fas fa-filter"></i>
-        </MDBBtn>
-      </div>
+        
       <div className='seccion-hacer'>
         <div>
           <span className='titulos-inicio'>¿Qué quieres hacer?</span>
