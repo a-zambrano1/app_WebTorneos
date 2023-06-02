@@ -45,18 +45,30 @@ const TablaTorneos = () => {
         </tr>
       </MDBTableHead>
       <MDBTableBody>
-        {jueces.map((juez,index) => {
-            return (
-                <tr>
-                    <td>
-                        <img src={imgJuez}></img>
-                    </td>
-                    <td>
-                        {juez.aka_juez}
-                    </td>
-                </tr>
-            );
-        })}
+      <tr>
+            <td>
+              <img src={imgJuez}></img>
+            </td>
+            <td>
+              <span>Zzatanas</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src={imgJuez}></img>
+            </td>
+            <td>
+              <span>Jay Jay</span>
+            </td>
+          </tr>
+            <tr>
+            <td>
+              <img src={imgJuez}></img>
+            </td>
+            <td>
+              <span>Zenaku</span>
+            </td>
+          </tr>
       </MDBTableBody>
     </MDBTable>
     </div>
