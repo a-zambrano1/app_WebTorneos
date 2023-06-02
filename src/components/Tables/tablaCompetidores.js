@@ -34,32 +34,60 @@ const TablaCompetidores = () => {
   
   return (
     <div className='recuadro2 debug'>
-        <MDBTable striped hover align='middle' >
-      <MDBTableHead>
-        <tr>
-            <th scope='col'>Nombre/AKA del Competidor</th>
+      <MDBTable stripped hover align='middle'>
+        <MDBTableHead>
+          <tr>
+          <th scope='col'>Nombre/AKA del Competidor</th>
             <th>
               <MDBBtn color='success' rounded size='sm'>
                 Agregar Participante
               </MDBBtn>
             </th>
-        </tr>
-      </MDBTableHead>
-      <MDBTableBody>
-        {competidores.map((competidores,index) => {
-            return (
-                <tr>
-                    <td>
-                        <img src={imgJuez}></img>
-                    </td>
-                    <td>
-                        {competidores.aka_participante}
-                    </td>
-                </tr>
-            );
-        })}
-      </MDBTableBody>
-    </MDBTable>
+          </tr>
+        </MDBTableHead>
+        <MDBTableBody>
+          <tr>
+            <td>
+              <img src={imgJuez}></img>
+            </td>
+            <td>
+              <span>Zzatanas</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src={imgJuez}></img>
+            </td>
+            <td>
+              <span>Jay Jay</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src={imgJuez}></img>
+            </td>
+            <td>
+              <span>Don Keco</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src={imgJuez}></img>
+            </td>
+            <td>
+              <span>Bulku</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src={imgJuez}></img>
+            </td>
+            <td>
+              <span>Zenaku</span>
+            </td>
+          </tr>
+        </MDBTableBody>
+      </MDBTable>
     </div>
   )
 }
