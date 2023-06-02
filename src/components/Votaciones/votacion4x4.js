@@ -21,7 +21,7 @@ const Votacion4x4 = ({mc1, mc2, onSaveEntradas, numEnt = 0, onSaveNEntr, listVal
         <div className='panel-votacion'>
           <div>
             <MDBInput label='Ingrese número de entradas' type='number' value={entradas} onChange={(e) => setEntradas(e.target.value)}></MDBInput>
-            <MDBBtn class='btn btn-success' onClick={renderEntrada}>Iniciar</MDBBtn>
+            <MDBBtn className='btn btn-success' onClick={renderEntrada}>Iniciar</MDBBtn>
           </div>
           <div className='titulo-mcs'>
             <span>{mc1}</span>

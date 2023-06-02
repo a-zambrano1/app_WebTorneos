@@ -10,11 +10,11 @@ const CardTorneo = ({nombreTorneo}) => {
   
   return (
     <div className='card-torneo'>
-        <img src={torneo_logo} width={45} height={45}/>
+        <img src={torneo_logo} width={45}/>
         <p style={{color:'white'}}>{nombreTorneo}</p>
         <div>
-            <img src={borrar} width={20} height={20}/>
-            <img src={cerrar_sesion} width={20} height={20} onClick={() => navigate('/adminInicio')}/>
+            <img src={borrar} width={30} />
+            <img src={cerrar_sesion} width={30} onClick={() => navigate('/adminInicio')}/>
         </div>
             
     </div>

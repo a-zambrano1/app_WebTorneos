@@ -25,7 +25,7 @@ const handleChangeEntradas = (idMC, index, value) => {
       </div>
       <div>
         <MDBInput label='Ingrese número de preguntas' type='number' onChange={(e) => setEntradas(e.target.value)}></MDBInput>
-        <MDBBtn class='btn btn-success' onClick={renderEntrada}>Iniciar</MDBBtn>
+        <MDBBtn className='btn btn-success' onClick={renderEntrada}>Iniciar</MDBBtn>
       </div>
       <div>
         <span className='titulo-kickback'>IDA</span>

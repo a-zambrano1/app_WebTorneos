@@ -13,10 +13,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import '../../styles/styles.css'
 import { MDBBtn, MDBIcon, MDBInput } from "mdb-react-ui-kit";
-import { toast } from "react-toastify";
 import { Button } from '@mui/material';
 import Modal from 'react-bootstrap/Modal'
-
+import { toast } from 'react-toastify'
 
 export default (props) => {
   const [email, setEmail] = useState("");
@@ -27,53 +26,37 @@ export default (props) => {
   const [userInfo, setUserInfo] = useState({});
   const auth = getAuth();
 
-  const testeoLoginPost = async (nombre,apellido, aka, email, password, roles ) =>{
+
+  const notify = (type, message) => {
+    toast[type](message)
+  }
+
+  const testeoLoginPost = async (nombre, aka, email,roles ) =>{
     console.log("Se accede al post")
     try {
       const response = await fetch(
-        'http://localhost:5000/api/usuarios', { 
+        'http://localhost:5000/api/usuarios/registroGoogle/'+email, { 
             method: "post",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ nombre,apellido, aka, email, password, roles })
+            body: JSON.stringify({ nombre, aka, email, roles })
             
-        })
-        const result = await response.json();
-        console.log(result);
-        console.warn(result);
+        }).then((response) => response.json())
+        if (response.data != 'ERROR') {
+        console.log('registro correcto');
+        }else{
+          console.log('error',response)
+        }
     } catch (error) {
-      console.log(error);
+      return(error);
     }
   }
 
-  const  TorneoGet = async (email_admin) =>{
-    console.log("Trayendo usuarios de la BD...")
-    console.log(email_admin)
-    try {
-      let result = await fetch(
-        'http://localhost:5000/api/usuarios/busqueda/' + email_admin, {
-            method: "get",
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        result = await result.json();
-        console.log(result)
-        if(result.data != 'ERROR'){
-            const aka = result.data;
-            return(aka.toString());
-        }else{
-          return("");
-        }    
-    } catch (error) {
-      console.log(error);
-      return("");
-    }
-  }
+
 
   const toRegister = () => {
-    testeoLoginPost(userInfo.displayName,"", aka, userInfo.email, "", "normal");
+    testeoLoginPost(userInfo.displayName, aka, userInfo.email, "normal");
     setOpen(false);
     navigate('/welcome');
   }
@@ -103,7 +86,6 @@ export default (props) => {
       .then((result) => {
         state.islogged = true;
         state.isAdmin = true;
-        console.log(result.user.uid)
         navigate('/welcome');
       })
       .catch((error) => {
@@ -119,18 +101,40 @@ export default (props) => {
 
   };
 
+  async function TorneoGet(email_admin){
+    console.log("Trayendo usuarios de la BD...")
+    try {
+      let result = await fetch(
+        'http://localhost:5000/api/usuarios/busqueda/existe/' +email_admin, {
+            method: "get",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then((response) => response.json())
+        if (result.status == 'OK') {
+            return(result.data);  
+        }else{
+          console.log("Error " + result.message) //toast
+          return("");
+        }    
+    } catch (error) {
+      return("")
+    }
+  }
+
   const ingresoGoogle = () => {
 
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
     signInWithPopup(auth, provider)
-      .then((result) => {
+      .then( async (result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
         state.isAdmin = false;
         setUserInfo(user);
-        const aka = TorneoGet(result.user.email) 
+        console.log("user",user)
+        const aka = await TorneoGet(user.email) 
         aka != "" ? navigate('/welcome') : setOpen(true);
       })
       .catch((error) => {
@@ -179,7 +183,7 @@ export default (props) => {
           size='lg'
           onClick={Ingreso}>
             <span>Ingresar </span>
-            <i class="fas fa-right-to-bracket"></i>
+            <i className="fas fa-right-to-bracket"></i>
           </MDBBtn>
         <div className='ingreso-correo'>
           <span>-------- O iniciar sesión con --------</span>
@@ -200,7 +204,8 @@ export default (props) => {
     </section>
     </div>
     <Button onClick={() => setOpen(true)}>Open modal</Button>
-    <Modal
+    <Button onClick={() => notify("warning","hola mundo")}>test toast</Button>
+        <Modal
       show={open}
       onHide={() => setOpen(false)}
       size="sm"
@@ -219,7 +224,7 @@ export default (props) => {
           <br></br>
           <br></br>
           <Button
-            style={{ backgroundColor: 'green', borderRadius: '100px' }}
+            
             onClick={() => toRegister()}
           >
             Registrarme

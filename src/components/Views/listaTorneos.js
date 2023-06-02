@@ -47,7 +47,7 @@ const ListaTorneos = () => {
           <span className='raprumble1'>Torneos</span>
         </span>
         </div>
-        {torneos.map((torneo) => <CardTorneo nombreTorneo={torneo.nombre_competencia} />)}
+        {torneos.map((torneo,index) => <CardTorneo key={index} nombreTorneo={torneo.nombre_competencia} />)}
         <MDBBtn onClick={()=>navigate('/welcome')} rounded color='success' size='lg'> Atrás</MDBBtn>
         <br/>
     </div>

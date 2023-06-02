@@ -59,14 +59,14 @@ const RegistroTorneo = () => {
       </div>
       <br/>
       <div className='nombre-torneo'>
-        <MDBInput wrapperClass='mb-4' 
+        <MDBInput className='mb-4' 
           style={{height:25, width:135}} 
           label='Nombre del torneo'
           type='text'
           id="nombre_torneo"
           onChange={(e) => setNombreTorneo(e.target.value)}
           ></MDBInput>
-        <select class="form-select" 
+        <select className="form-select" 
           style={{height:45, width:90}} 
           aria-label="Default select example"
           type='text'
@@ -79,7 +79,7 @@ const RegistroTorneo = () => {
         </select>
       </div>
       <div className='numero-mcs'>
-          <MDBInput wrapperClass='mb-4'
+          <MDBInput className='mb-4'
             style={{height:40}} 
             size='lg'
             type='number'
@@ -87,21 +87,21 @@ const RegistroTorneo = () => {
             label='Número de MCs'
             >
           </MDBInput>
-          <MDBInput wrapperClass='mb-4' 
+          <MDBInput className='mb-4' 
             style={{height:40}} 
             label='Número de Fechas'
             type='number'
             id="numero_fechas"
             onChange={(e) => setNumeroFechas(e.target.value)}>
           </MDBInput>
-          <MDBInput wrapperClass='mb-4' 
+          <MDBInput className='mb-4' 
             tyle={{height:40}} 
             type='number'
             label='Número de Jueces'
             id="numero_jueces"
             >
           </MDBInput>
-          <MDBInput wrapperClass='mb-4' 
+          <MDBInput className='mb-4' 
             style={{height:45}} 
             id="descripcion"
             type='text'
