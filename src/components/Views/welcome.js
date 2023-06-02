@@ -23,7 +23,7 @@ const Welcome = () => {
         }
     }, [])
 
-    const  TorneoGet = async (e) =>{
+    const  TorneoGet = async () =>{
         console.log("Trayendo usuarios de la BD...")
         console.log(email_admin)
         try {
@@ -35,10 +35,14 @@ const Welcome = () => {
                 }
             })
             result = await result.json();
+            console.log(result)
             const data = Object.values(result)
-            const aka = data[1].aka
-            setAka(aka.toString());	
-            console.log(aka);
+            if(data[1].aka != null){
+                const aka = data[1].aka;
+                setAka(aka.toString());
+            }else{
+            	console.log("No se pudo encontrar el aka");
+            }    
         } catch (error) {
           console.log(error);
         }

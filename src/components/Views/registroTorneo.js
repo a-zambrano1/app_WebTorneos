@@ -2,6 +2,8 @@ import { MDBBtn, MDBIcon, MDBInput } from 'mdb-react-ui-kit';
 import React from 'react';
 import { useState } from 'react';
 import { getAuth } from "firebase/auth";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 const RegistroTorneo = () => {
   
@@ -11,6 +13,10 @@ const RegistroTorneo = () => {
   const [numero_fechas, setNumeroFechas] = useState("");
   const auth = getAuth();
   const email_admin = auth.currentUser.email;
+
+  const notify = (type, message) => {
+    toast[type](message)
+  }
 
     const TorneoPost = async (e) =>{  
       console.log("Eviando informacion a la BD...")
@@ -22,10 +28,13 @@ const RegistroTorneo = () => {
               headers: {
                   'Content-Type': 'application/json'
               }
-          })         
-          result = await result.json();
+          }).then((response) => response.json())
+          if (result.data != null) {;
+            console.log(result);
+            notify('success', 'Torneo registrado con éxito.')
+          }
       } catch (error) {
-        console.log(error);
+        notify('warning', 'Error, no se pudo registrar el torneo.')
       }
     }
 

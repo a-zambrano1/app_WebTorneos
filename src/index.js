@@ -7,7 +7,8 @@ import App from './components/App/App';
 import reportWebVitals from './web/reportWebVitals';
 import { FirebaseAppProvider } from 'reactfire';
 import firebaseConfig from './firebase/firebase-config';
-import micro from './media/micro.png'
+import 'react-toastify/dist/ReactToastify.css'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -7,7 +7,7 @@ import { getAuth } from 'firebase/auth';
 const TablaCompetidores = () => {
   const auth = getAuth();
   const email_admin = auth.currentUser.email;
-  const nameTournament = 'UdeRap 2023'   
+  const nameTournament = 'resiliencia'   
       const [competidores, setCompetidores] = useState([])
       const getJueces = async() => {
         try {

@@ -9,18 +9,75 @@ import {
   signInWithPopup
 } from "firebase/auth";
 import { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import '../../styles/styles.css'
 import { MDBBtn, MDBIcon, MDBInput } from "mdb-react-ui-kit";
 import { toast } from "react-toastify";
-
+import { Button } from '@mui/material';
+import Modal from 'react-bootstrap/Modal'
 
 
 export default (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
+  const [aka, setAka] = useState("");
+  const [userInfo, setUserInfo] = useState({});
   const auth = getAuth();
+
+  const testeoLoginPost = async (nombre,apellido, aka, email, password, roles ) =>{
+    console.log("Se accede al post")
+    try {
+      const response = await fetch(
+        'http://localhost:5000/api/usuarios', { 
+            method: "post",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nombre,apellido, aka, email, password, roles })
+            
+        })
+        const result = await response.json();
+        console.log(result);
+        console.warn(result);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const  TorneoGet = async (email_admin) =>{
+    console.log("Trayendo usuarios de la BD...")
+    console.log(email_admin)
+    try {
+      let result = await fetch(
+        'http://localhost:5000/api/usuarios/busqueda/' + email_admin, {
+            method: "get",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        result = await result.json();
+        console.log(result)
+        if(result.data != 'ERROR'){
+            const aka = result.data;
+            return(aka.toString());
+        }else{
+          return("");
+        }    
+    } catch (error) {
+      console.log(error);
+      return("");
+    }
+  }
+
+  const toRegister = () => {
+    testeoLoginPost(userInfo.displayName,"", aka, userInfo.email, "", "normal");
+    setOpen(false);
+    navigate('/welcome');
+  }
+
 
   const Registro = async () => {
     state.isAdmin = false;
@@ -63,6 +120,7 @@ export default (props) => {
   };
 
   const ingresoGoogle = () => {
+
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
     signInWithPopup(auth, provider)
@@ -71,8 +129,9 @@ export default (props) => {
         const token = credential.accessToken;
         const user = result.user;
         state.isAdmin = false;
-        console.log(result.user.displayName)
-        navigate('/welcome');
+        setUserInfo(user);
+        const aka = TorneoGet(result.user.email) 
+        aka != "" ? navigate('/welcome') : setOpen(true);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -140,6 +199,49 @@ export default (props) => {
       </div>
     </section>
     </div>
+    <Button onClick={() => setOpen(true)}>Open modal</Button>
+    <Modal
+      show={open}
+      onHide={() => setOpen(false)}
+      size="sm"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title>
+          INGRESO DEL AKA
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <MDBInput label='Ingrese su AKA' type="text" style={{height:60}} onChange={(e) => setAka(e.target.value)} />
+      </Modal.Body>
+      <Modal.Footer>
+          <br></br>
+          <br></br>
+          <Button
+            style={{ backgroundColor: 'green', borderRadius: '100px' }}
+            onClick={() => toRegister()}
+          >
+            Registrarme
+          </Button>
+          <Button
+            style={{
+              backgroundColor: 'transparent',
+              borderRadius: '100px',
+              color: 'black',
+            }}
+            onClick={() => setOpen(false)}
+          >
+            Cancelar
+          </Button>
+          <br></br>
+          <br></br>
+        </Modal.Footer>
+  </Modal>
     </div>
   );
+
+
+
+
 };

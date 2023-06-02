@@ -14,7 +14,7 @@ const ListaTorneos = () => {
  const email_admin = auth.currentUser.email;
  const [torneos, setTorneos] = useState([]);
 
- const  TorneoGet = async (e) =>{
+ const  TorneoGet = async () =>{
   console.log("Trayendo torneos de la BD...")
   console.log(email_admin)
   try {
@@ -27,22 +27,16 @@ const ListaTorneos = () => {
       })
       result = await result.json();
       const torneos = Object.values(result) 
-      const newArray = [];
-      for(const [index, value] of torneos.entries()){
-        newArray.push(value);
-      }
-      setTorneos(newArray);
-      console.log(torneos[1]);
+      setTorneos(result.data);
   } catch (error) {
     console.log(error);
   }
 }
 
-  //Esperar a la ayuda del pana [] para que funcione el useEffect xd
-  const torneosArray = (e) => {
-    TorneoGet(e);
-    <CardTorneo nombreTorneo='prueba'/>
-  }
+
+  useEffect(() => {
+    TorneoGet();
+  }, [])
 
 
 
@@ -53,10 +47,7 @@ const ListaTorneos = () => {
           <span className='raprumble1'>Torneos</span>
         </span>
         </div>
-        <MDBBtn rounded color='success' size='lg' onClick={(e) => torneosArray(e)}>Mostrar Torneos</MDBBtn>
-        <CardTorneo nombreTorneo='Liga Mentos'/>
-        <CardTorneo nombreTorneo='UdeRAP'/>
-        <CardTorneo nombreTorneo='Batalla de Campeones'/>
+        {torneos.map((torneo) => <CardTorneo nombreTorneo={torneo.nombre_competencia} />)}
         <MDBBtn onClick={()=>navigate('/welcome')} rounded color='success' size='lg'> Atrás</MDBBtn>
         <br/>
     </div>
