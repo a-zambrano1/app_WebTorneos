@@ -14,11 +14,8 @@ const AdminInicio = () => {
         <div className='titulo-torneo' style={{backgroundImage: `url(${imgBatalla})`,
         backgroundSize: "cover"
       }}>
-            <MDBBtn type='button' className='btn btn-dark buton-opciones-torneo'  onClick={() => navigate('/tablaParticipantes')}>Competidores</MDBBtn>
-            <MDBBtn type='button' className='btn btn-dark buton-opciones-torneo'>Fechas</MDBBtn>
-            <MDBBtn type='button' className='btn btn-dark buton-opciones-torneo'>Batallas</MDBBtn>
-            <MDBBtn type='button' className='btn btn-dark buton-opciones-torneo'>Tabla</MDBBtn>
-            <MDBBtn type='button' className='btn btn-dark buton-opciones-torneo' onClick={() => navigate('/tabla')}>Jueces</MDBBtn>
+            <MDBBtn type='button' className='btn btn-success buton-opciones-torneo'  onClick={() => navigate('/tablaParticipantes')}>Competidores</MDBBtn>
+            <MDBBtn type='button' className='btn btn-success buton-opciones-torneo' onClick={() => navigate('/tabla')}>Jueces</MDBBtn>
         </div>
     </div>
   )

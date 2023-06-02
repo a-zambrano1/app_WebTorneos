@@ -36,12 +36,12 @@ const TablaTorneos = () => {
         <MDBTable striped hover align='middle' >
       <MDBTableHead>
         <tr>
-            <th scope='col'>Nombre/AKA del Juez</th>
-            <th>
-              <MDBBtn color='success' rounded size='sm'>
-                Agregar Juez
-              </MDBBtn>
-            </th>
+          <th>
+            <MDBBtn color='success' rounded size='sm'>
+              Agregar Juez
+            </MDBBtn>
+          </th>
+          <th scope='col'>A.K.A del Juez</th> 
         </tr>
       </MDBTableHead>
       <MDBTableBody>
