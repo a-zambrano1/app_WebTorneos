@@ -14,7 +14,7 @@ import {
 import { MDBBtn, MDBIcon, MDBInput } from 'mdb-react-ui-kit';
 
 const RegistroUser = () => {
-    const [nombre, setNombre] = useState("pablo");
+    const [nombre, setNombre] = useState("");
     const [apellido, setApellido] = useState("");
     const [aka, setAka] = useState("");
     const [email, setEmail] = useState("");
@@ -25,8 +25,12 @@ const RegistroUser = () => {
     const auth = getAuth();
 
     const registroCompleto = async (e) => { 
-      if(testeoLoginPost(e)){
-        nuevoRegistro();
+      if(testeoLoginPost(e) == true){
+        if(nuevoRegistro() == true){
+          toast.success("Usuario registrado con éxito");
+        }else{
+          toast.error("Error al registrar usuario");
+        }
       }
       
     }
@@ -35,10 +39,11 @@ const RegistroUser = () => {
         await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          toast.success("Usuario registrado con éxito");
+          return true;
         })
         .catch((error) => {
           toast.error("Error al registrar usuario");
+          return false;
         });
     }
 
@@ -46,18 +51,42 @@ const RegistroUser = () => {
     const testeoLoginPost = async (e) =>{
       console.log("Se accede al post")
       try {
-        const response = await fetch(
-          'http://localhost:5000/api/usuarios/registro/' + email, { 
+        const result = await fetch(
+          'http://localhost:5000/api/usuarios/registro', { 
               method: "post",
               headers: {
                   'Content-Type': 'application/json'
               },
-              body: JSON.stringify({ nombre,apellido, aka, email, password, roles })
+              body: JSON.stringify({ nombre,apellido, aka, email, password, roles }),
+              headers: {
+                'Content-Type': 'application/json'
+              }
               
-          })
-          const result = await response.json();
-          console.log(result);
-          console.warn(result);
+            }).then((response) => response.json())
+            if (result.data != null) {
+              console.log(result);
+              toast.success('Usuario registrado con éxito')
+            }else{
+              if(result.status == 99){
+                toast.error('Ya existe un usuario con ese correo')
+              }else if(result.status == 200){
+                toast.error('Debe ingresar un nombre')
+              }else if(result.status == 201){
+                toast.error('Debe ingresar un apellido')
+              } else if(result.status == 202){
+                toast.error('Debe ingresar un aka')
+              } else if(result.status == 98){
+                toast.error('Debe ingresar un correo')
+              } else if(result.status == 100){
+                toast.error('La contraseña es demasiado corta')
+              } else if(result.status == 101){
+                toast.error('La contraseña debe tener al menos una letra')
+              }else if(result.status == 102){
+                toast.error('La contraseña debe tener al menos una letra mayuscula')
+              }else if(result.status == 103){
+                toast.error('La contraseña debe tener al menos un numero')      
+              }  
+            }
           return true;
       } catch (error) {
         console.log(error);
