@@ -25,8 +25,10 @@ const RegistroUser = () => {
     const auth = getAuth();
 
     const registroCompleto = async (e) => { 
-      nuevoRegistro();
-      testeoLoginPost(e);
+      if(testeoLoginPost(e)){
+        nuevoRegistro();
+      }
+      
     }
 
     const nuevoRegistro = async () => {
@@ -45,7 +47,7 @@ const RegistroUser = () => {
       console.log("Se accede al post")
       try {
         const response = await fetch(
-          'http://localhost:5000/api/usuarios', { 
+          'http://localhost:5000/api/usuarios/registro/' + email, { 
               method: "post",
               headers: {
                   'Content-Type': 'application/json'
@@ -56,8 +58,10 @@ const RegistroUser = () => {
           const result = await response.json();
           console.log(result);
           console.warn(result);
+          return true;
       } catch (error) {
         console.log(error);
+        return false;
       }
     }
 

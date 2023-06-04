@@ -23,7 +23,7 @@ const RegistroTorneo = () => {
     const TorneoPost = async (e) =>{  
       console.log("Eviando informacion a la BD...")
       try {
-        let result = await fetch(
+        const result = await fetch(
           'http://localhost:5000/api/torneos/' + email_admin, {
               method: "post",
               body: JSON.stringify({nombre_torneo,tipo,numero_participantes, numero_fechas, descripcion, email_admin, numero_jueces}),
