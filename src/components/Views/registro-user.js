@@ -21,46 +21,46 @@ const RegistroUser = () => {
     const [password, setPassword] = useState("");
     const [roles, setRoles] = useState(['normal']);
     const navigate = useNavigate();
+    const [estadoPost, setEstadoPost] = useState(false);
+    const [estadoRegistro, setEstadoRegistro] = useState(false);
 
     const auth = getAuth();
 
     const registroCompleto = async (e) => { 
-<<<<<<< Updated upstream
-      if(testeoLoginPost(e) == true){
-        if(nuevoRegistro() == true){
-          toast.success("Usuario registrado con éxito");
-        }else{
-          toast.error("Error al registrar usuario");
-        }
-=======
       if(testeoLoginPost(e)){
-        if(nombre === null || nombre === ""){
-          toast.error("El nombre es obligatorio");
-        }
-        if(apellido === null || apellido === ""){
-          toast.error("El apellido es obligatorio");
-        }
-        if(aka === null || aka === ""){
-          toast.error("El aka es obligatorio");
-        }
-        if(email === null || email === ""){
-          toast.error("El email es obligatorio");
-        }
-        if(password === null || password === ""){
-          toast.error("La contraseña es obligatoria");
-        }else{
-          nuevoRegistro();
-        }
-        
->>>>>>> Stashed changes
-      }
-      
+        if(nuevoRegistro()){
+          toast.success("Usuario registrado con éxito");
+          navigate('/login');
+        };
     }
+  }
 
     const nuevoRegistro = async () => {
+        console.log("Se accede al nuevo registro")
         await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
+          console.log(userCredential)
           const user = userCredential.user;
+          if(nombre != "" && apellido != "" && aka != "" && email != "" && password != ""){
+            toast.error("Debe llenar todos los campos");
+            return false;
+          }
+          if(password.length < 5){
+            toast.error("La contraseña es demasiado corta");
+            return false;
+          }
+          if(password.search(/[a-z]/i) < 0){
+            toast.error("La contraseña debe tener al menos una letra");
+            return false;
+          }
+          if(password.search(/[A-Z]/) < 0){
+            toast.error("La contraseña debe tener al menos una letra mayuscula");
+            return false;
+          }
+          if(password.search(/[0-9]/) < 0){
+            toast.error("La contraseña debe tener al menos un numero");
+            return false;
+          }
           return true;
         })
         .catch((error) => {
@@ -89,6 +89,7 @@ const RegistroUser = () => {
             if (result.data != null) {
               console.log(result);
               toast.success('Usuario registrado con éxito')
+              return true;
             }else{
               if(result.status == 99){
                 toast.error('Ya existe un usuario con ese correo')
@@ -110,7 +111,6 @@ const RegistroUser = () => {
                 toast.error('La contraseña debe tener al menos un numero')      
               }  
             }
-          return true;
       } catch (error) {
         console.log(error);
         return false;
