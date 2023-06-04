@@ -25,12 +25,34 @@ const RegistroUser = () => {
     const auth = getAuth();
 
     const registroCompleto = async (e) => { 
+<<<<<<< Updated upstream
       if(testeoLoginPost(e) == true){
         if(nuevoRegistro() == true){
           toast.success("Usuario registrado con éxito");
         }else{
           toast.error("Error al registrar usuario");
         }
+=======
+      if(testeoLoginPost(e)){
+        if(nombre === null || nombre === ""){
+          toast.error("El nombre es obligatorio");
+        }
+        if(apellido === null || apellido === ""){
+          toast.error("El apellido es obligatorio");
+        }
+        if(aka === null || aka === ""){
+          toast.error("El aka es obligatorio");
+        }
+        if(email === null || email === ""){
+          toast.error("El email es obligatorio");
+        }
+        if(password === null || password === ""){
+          toast.error("La contraseña es obligatoria");
+        }else{
+          nuevoRegistro();
+        }
+        
+>>>>>>> Stashed changes
       }
       
     }
@@ -45,6 +67,7 @@ const RegistroUser = () => {
           toast.error("Error al registrar usuario");
           return false;
         });
+
     }
 
 
@@ -128,28 +151,29 @@ const RegistroUser = () => {
         <span>Registro de Usuario</span>
       </div>
       <br/>
+      <span>Los campos con * son obligatorios.</span>
       <section>
         <div className='cuadro-informacion'>
         <MDBInput
-          label="Ingresar Nombre"
+          label="Ingresar Nombre *"
           id="nombre"
           style={{height:25}}
           onChange={(e) => setNombre(e.target.value)}
         />
         <MDBInput
-          label="Ingresar Apellido"
+          label="Ingresar Apellido * "
           id="apellido"
           style={{height:25}}
           onChange={(e) => setApellido(e.target.value)}
         />
         <MDBInput
-          label="Ingresar A.K.A"
+          label="Ingresar A.K.A * "
           id="aka"
           style={{height:25}}
           onChange={(e) => setAka(e.target.value)}
         />
           <MDBInput
-          label="Ingresar Correo"
+          label="Ingresar Correo * "
           type='email'
           id="email"
           style={{height:25}}
@@ -158,7 +182,7 @@ const RegistroUser = () => {
         
         <MDBInput
           minLength="8"
-          label="Ingresar Contraseña"
+          label="Ingresar Contraseña * "
           id="password"
           type='password'
           style={{height:25}}

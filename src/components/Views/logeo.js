@@ -88,7 +88,12 @@ export default (props) => {
       })
       .catch((error) => {
         const errorCode = error.code;
-        
+        if(email === null || email === ""){
+          toast.error('Debe ingresar un correo');
+        }
+        if(password === null || password === ""){
+          toast.error('Debe ingresar una contraseña');
+        }
         if (errorCode === "auth/wrong-password") {
           toast.error('Contraseña Incorrecta')
         }
@@ -109,13 +114,14 @@ export default (props) => {
                 'Content-Type': 'application/json'
             }
         }).then((response) => response.json())
+        console.log(result)
         if (result.status == 'OK') {
             return(result.data);  
         }else{
           toast.error('Error al buscar usuario');
-        }    
+        } 
     } catch (error) {
-      return("")
+      return("");
     }
   }
 
@@ -193,7 +199,7 @@ export default (props) => {
           <br/>
           <div className='crear-cuenta'>
             <span>¿No estás registrado aún?</span>
-            <a onClick={()=>navigate('/registro_usuario')}>Crear Cuenta</a>
+            <a className= 'boton-crear-cuenta' onClick={()=>navigate('/registro_usuario')}>Crear Cuenta</a>
           </div>
           <br/>
         </div>
@@ -214,6 +220,7 @@ export default (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        <span>¡Hola! Al ser la primera vez que te registras a Rap Rumble debes ingresar tu AKA</span>
         <MDBInput label='Ingrese su A.K.A' type="text" style={{height:60}} onChange={(e) => setAka(e.target.value)} />
       </Modal.Body>
       <Modal.Footer>

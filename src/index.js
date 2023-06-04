@@ -14,7 +14,13 @@ import { ToastContainer } from 'react-toastify';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ToastContainer position='top-center'/>
+    <ToastContainer position="top-center"
+      autoClose={1300}
+      hideProgressBar={true}
+      newestOnTop={false}
+      draggable={false}
+      closeOnClick
+      pauseOnHover/>
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
       <div className='pag-bienvenida'><link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Outfit"/>
