@@ -31,10 +31,10 @@ const RegistroTorneo = () => {
           }).then((response) => response.json())
           if (result.data != null) {;
             console.log(result);
-            notify('success', 'Torneo registrado con éxito.')
+            toast.success('Torneo registrado con éxito')
           }
       } catch (error) {
-        notify('warning', 'Error, no se pudo registrar el torneo.')
+        toast.error('Error al registrar torneo')
       }
     }
 

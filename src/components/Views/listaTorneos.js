@@ -5,6 +5,7 @@ import { getAuth } from "firebase/auth";
 import { MDBBtn } from 'mdb-react-ui-kit';
 import { useState } from 'react';
 import { set } from 'firebase/database';
+import { toast } from 'react-toastify';
 
 const ListaTorneos = () => {
  
@@ -29,7 +30,7 @@ const ListaTorneos = () => {
       const torneos = Object.values(result) 
       setTorneos(result.data);
   } catch (error) {
-    console.log(error);
+    toast.error('Error al traer torneos')
   }
 }
 

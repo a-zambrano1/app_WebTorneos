@@ -73,9 +73,7 @@ export default (props) => {
         navigate('/welcome');
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
+        toast.error("Error al registrar usuario");
       });
   };
 
@@ -92,10 +90,10 @@ export default (props) => {
         const errorCode = error.code;
         
         if (errorCode === "auth/wrong-password") {
-          console.log("Contraseña incorrecta");
+          toast.error('Contraseña Incorrecta')
         }
         if (errorCode === "auth/user-not-found") {
-          console.log("Usuario no encontrado");
+          toast.error('Usuario no encontrado');
         }
       });
 
@@ -114,8 +112,7 @@ export default (props) => {
         if (result.status == 'OK') {
             return(result.data);  
         }else{
-          console.log("Error " + result.message) //toast
-          return("");
+          toast.error('Error al buscar usuario');
         }    
     } catch (error) {
       return("")
