@@ -7,10 +7,12 @@ import 'react-toastify/dist/ReactToastify.css'
 
 const RegistroTorneo = () => {
   
-  const [nombre_competencia, setNombreTorneo] = useState("");
+  const [nombre_torneo, setNombreTorneo] = useState("");
   const [tipo, setTipo_Torneo] = useState("liga");
   const [descripcion, setDescripcion] = useState("");
   const [numero_fechas, setNumeroFechas] = useState("");
+  const [numero_participantes, setNumeroParticipantes] = useState("");
+  const [numero_jueces, setNumeroJueces] = useState("");
   const auth = getAuth();
   const email_admin = auth.currentUser.email;
 
@@ -22,9 +24,9 @@ const RegistroTorneo = () => {
       console.log("Eviando informacion a la BD...")
       try {
         let result = await fetch(
-          'http://localhost:5000/api/torneos', {
+          'http://localhost:5000/api/torneos/' + email_admin, {
               method: "post",
-              body: JSON.stringify({nombre_competencia,tipo,numero_fechas, descripcion, email_admin}),
+              body: JSON.stringify({nombre_torneo,tipo,numero_participantes, numero_fechas, descripcion, email_admin, numero_jueces}),
               headers: {
                   'Content-Type': 'application/json'
               }
@@ -32,9 +34,23 @@ const RegistroTorneo = () => {
           if (result.data != null) {;
             console.log(result);
             toast.success('Torneo registrado con éxito')
+          }else{
+            if(result.status == 99){
+              toast.error('Ya tienes un torneo registrado con ese nombre')
+            }
+            if(result.status == 100){
+              toast.error('El nombre del torneo es obligatorio')
+            } else if(result.status == 101){
+              toast.error('Debe haber al menos un MC')
+            }else if(result.status == 102){
+              toast.error('Debe haber al menos una fecha')
+            }else if(result.status == 103){
+              toast.error('Debe haber al menos un juez')
+            }  
           }
       } catch (error) {
-        toast.error('Error al registrar torneo')
+        console.log(error);
+        toast.error('Error al registrar torneo') 
       }
     }
 
@@ -83,7 +99,8 @@ const RegistroTorneo = () => {
             style={{height:40}} 
             size='lg'
             type='number'
-            id="numero_mcs"
+            id="numero_participantes"
+            onChange ={(e) => setNumeroParticipantes(e.target.value)}
             label='Número de MCs'
             >
           </MDBInput>
@@ -99,7 +116,7 @@ const RegistroTorneo = () => {
             type='number'
             label='Número de Jueces'
             id="numero_jueces"
-            >
+            onChange={(e) => setNumeroJueces(e.target.value)}>
           </MDBInput>
           <MDBInput className='mb-4' 
             style={{height:45}} 
