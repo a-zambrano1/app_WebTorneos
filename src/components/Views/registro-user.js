@@ -36,6 +36,7 @@ const RegistroUser = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           toast.success("Usuario registrado con éxito");
+          navigate('/');
         })
         .catch((error) => {
           toast.error("Error al registrar usuario");
