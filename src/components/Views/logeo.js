@@ -108,7 +108,7 @@ export default (props) => {
     console.log("Trayendo usuarios de la BD...")
     try {
       let result = await fetch(
-        'http://localhost:5000/api/usuarios/busqueda/existe/' +email_admin, {
+        'http://localhost:5000/api/usuarios/busqueda/existe/' + email_admin, {
             method: "get",
             headers: {
                 'Content-Type': 'application/json'
@@ -118,7 +118,7 @@ export default (props) => {
         if (result.status == 'OK') {
             return(result.data);  
         }else{
-          toast.error('Error al buscar usuario');
+          toast.error('Ingresa tu A.K.A');
         } 
     } catch (error) {
       return("");
@@ -137,8 +137,8 @@ export default (props) => {
         state.isAdmin = false;
         setUserInfo(user);
         console.log("user",user)
-        const aka = await TorneoGet(user.email) 
-        aka != "" ? navigate('/welcome') : setOpen(true);
+        const aka = await TorneoGet(user.email);  
+        aka != null &&  aka != "" ? navigate('/welcome') : setOpen(true);
       })
       .catch((error) => {
         const errorCode = error.code;

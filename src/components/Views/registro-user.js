@@ -28,44 +28,37 @@ const RegistroUser = () => {
 
     const registroCompleto = async (e) => { 
       if(testeoLoginPost(e)){
-        if(nuevoRegistro()){
-          toast.success("Usuario registrado con éxito");
-          navigate('/login');
-        };
+        if(nombre == "" && apellido == "" && aka == "" && email == "" && password == ""){
+          //toast.error("Debe llenar todos los campos");
+        }else if(password.length < 5){
+          //toast.error("La contraseña es demasiado corta");
+        }else if(password.search(/[a-z]/i) < 0){
+          //toast.error("La contraseña debe tener al menos una letra");
+        }else if(password.search(/[A-Z]/) < 0){
+          //toast.error("La contraseña debe tener al menos una letra mayuscula");
+        }else if(password.search(/[0-9]/) < 0){
+          //toast.error("La contraseña debe tener al menos un numero");
+        }else if(password.search(/[^a-zA-Z\d]/) < 0){
+          //toast.error("La contraseña debe tener al menos un caracter especial");
+        }else{
+          nuevoRegistro();
+          //toast.success("El usuario ha sido creado con éxito");
+          //navigate('/login');
+          
+        }
+        
     }
   }
 
     const nuevoRegistro = async () => {
-        console.log("Se accede al nuevo registro")
         await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          console.log(userCredential)
           const user = userCredential.user;
-          if(nombre != "" && apellido != "" && aka != "" && email != "" && password != ""){
-            toast.error("Debe llenar todos los campos");
-            return false;
-          }
-          if(password.length < 5){
-            toast.error("La contraseña es demasiado corta");
-            return false;
-          }
-          if(password.search(/[a-z]/i) < 0){
-            toast.error("La contraseña debe tener al menos una letra");
-            return false;
-          }
-          if(password.search(/[A-Z]/) < 0){
-            toast.error("La contraseña debe tener al menos una letra mayuscula");
-            return false;
-          }
-          if(password.search(/[0-9]/) < 0){
-            toast.error("La contraseña debe tener al menos un numero");
-            return false;
-          }
-          return true;
+          toast.success("El usuario ha sido creado con éxito en firebase");
+          navigate('/login');
         })
         .catch((error) => {
           toast.error("Error al registrar usuario");
-          return false;
         });
 
     }
@@ -88,7 +81,7 @@ const RegistroUser = () => {
             }).then((response) => response.json())
             if (result.data != null) {
               console.log(result);
-              toast.success('Usuario registrado con éxito')
+              toast.success('Usuario registrado con exito en mongo')
               return true;
             }else{
               if(result.status == 99){
@@ -109,7 +102,9 @@ const RegistroUser = () => {
                 toast.error('La contraseña debe tener al menos una letra mayuscula')
               }else if(result.status == 103){
                 toast.error('La contraseña debe tener al menos un numero')      
-              }  
+              }else if(result.status == 104){
+                toast.error('La contraseña debe tener al menos un caracter especial')      
+              }   
             }
       } catch (error) {
         console.log(error);

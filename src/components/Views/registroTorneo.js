@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { getAuth } from "firebase/auth";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import { useNavigate } from 'react-router-dom/dist';
 
 const RegistroTorneo = () => {
   
@@ -15,6 +16,7 @@ const RegistroTorneo = () => {
   const [numero_jueces, setNumeroJueces] = useState("");
   const auth = getAuth();
   const email_admin = auth.currentUser.email;
+  const navigate = useNavigate();
 
   const notify = (type, message) => {
     toast[type](message)
@@ -34,6 +36,7 @@ const RegistroTorneo = () => {
           if (result.data != null) {;
             console.log(result);
             toast.success('Torneo registrado con éxito')
+            navigate('/welcome')
           }else{
             if(result.status == 99){
               toast.error('Ya tienes un torneo registrado con ese nombre')

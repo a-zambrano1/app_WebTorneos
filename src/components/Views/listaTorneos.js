@@ -29,6 +29,7 @@ const ListaTorneos = () => {
       result = await result.json();
       const torneos = Object.values(result) 
       setTorneos(result.data);
+      console.log(result.data)
   } catch (error) {
     toast.error('Error al traer torneos')
   }
@@ -48,7 +49,7 @@ const ListaTorneos = () => {
           <span className='raprumble1'>Torneos</span>
         </span>
         </div>
-        {torneos.map((torneo,index) => <CardTorneo key={index} nombreTorneo={torneo.nombre_competencia} />)}
+        {torneos.map((torneo,index) => <CardTorneo key={index} nombreTorneo={torneo.nombre_torneo} />)}
         <MDBBtn onClick={()=>navigate('/welcome')} rounded color='success' size='lg'> Atrás</MDBBtn>
         <br/>
     </div>
