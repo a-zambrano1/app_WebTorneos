@@ -5,6 +5,7 @@ import imgJuez from '../../media/Frame 15.png'
 import { getAuth } from 'firebase/auth';
 import Modal from 'react-bootstrap/Modal'
 import { Button } from '@mui/material'
+import { toast } from 'react-toastify';
 
 const TablaCompetidores = () => {
   const auth = getAuth();
@@ -12,10 +13,11 @@ const TablaCompetidores = () => {
   const nameTournament = 'resiliencia'   
   const [nuevoCompetidor, setNuevoCompetidor] = useState('')
   const [newRow, setNewRow] = useState([{
-    imagen:<img src={imgJuez}></img>,
+    imagen:'',
     aka: '',
-    puntaje: 0,
+    puntaje: '',
   }])
+  const [limiteParticipantes, setLimiteParticipantes] = useState(5)
 
   const [open, setOpen] = useState(false)
       const [competidores, setCompetidores] = useState([])
@@ -44,14 +46,19 @@ const TablaCompetidores = () => {
 
       const guardarNuevoCompetidor = async() => {
         try {
-          setNewRow([...newRow, {
-            imagen:<img src={imgJuez}></img>,
-            aka: nuevoCompetidor,
-            puntaje: 0,
-          }])
-          setOpen(false)
+          if(newRow.length <= limiteParticipantes){
+            setNewRow([...newRow, {
+              imagen:<img src={imgJuez}></img>,
+              aka: nuevoCompetidor,
+              puntaje: 0,
+            }])
+            setOpen(false)
+            toast.success('Nuevo competidor agregado')
+          }else{
+            toast.warning('Error, se ha alcanzado el limite de participantes')
+          }
         } catch (error) {
-          return error
+          toast.error('Error al guardar el nuevo competidor')
         }
       }
 
@@ -82,6 +89,7 @@ const TablaCompetidores = () => {
           ))}
         </MDBTableBody>
       </MDBTable>
+      <MDBBtn className='buton-opciones-torneo btn-success success' rounded size='sm' >Guardar</MDBBtn>
       <Modal
       show={open}
       onHide={() => setOpen(false)}
