@@ -12,7 +12,10 @@ const ResultadoVotaciones = ({mc1, mc2, resultado1, resultado2}) => {
   const [resultado, setResultado] = useState("");
 
   const calcularResultados = () => {
-    if(resultado1 - resultado2 > 1.5){
+    if(resultado1 === 0 && resultado2 === 0){
+      setResultado("No hay votos")
+      setOpen(true)
+    }else if(resultado1 - resultado2 > 1.5){
       setResultado(mc1)
       setOpen(true)
     }else if(resultado2 - resultado1 > 1.5){
@@ -47,7 +50,7 @@ const ResultadoVotaciones = ({mc1, mc2, resultado1, resultado2}) => {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
+    <Modal.Header closeButton>
         <Modal.Title>
           Resultado de las Votaciones
         </Modal.Title>

@@ -33,6 +33,7 @@ const TablaTorneos = () => {
 
   return (
     <div className='recuadro2 debug'>
+      <a className='regresar' onClick={()=>window.history.back() }>« Regresar</a>
         <MDBTable striped hover align='middle' >
       <MDBTableHead>
         <tr>
