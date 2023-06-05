@@ -97,7 +97,7 @@ const Votacion = () => {
         </MDBBtn></text>
       </div>
        <CambioFormato formato={formatoActual}/>
-       <ResultadoVotaciones resultado1={resultado1} resultado2={resultado2} />
+       <ResultadoVotaciones mc1={location.state.mc1} mc2={location.state.mc2} resultado1={resultado1} resultado2={resultado2} />
     </div>
     <br/>
     </div>
