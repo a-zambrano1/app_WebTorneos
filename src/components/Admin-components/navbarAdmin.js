@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-const NavbarAdmin = () => {
+const NavbarAdmin = (nombre_torneo) => {
   const navigate = useNavigate()
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">

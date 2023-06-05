@@ -21,8 +21,6 @@ const RegistroUser = () => {
     const [password, setPassword] = useState("");
     const [roles, setRoles] = useState(['normal']);
     const navigate = useNavigate();
-    const [estadoPost, setEstadoPost] = useState(false);
-    const [estadoRegistro, setEstadoRegistro] = useState(false);
 
     const auth = getAuth();
 
