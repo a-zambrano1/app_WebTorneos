@@ -11,7 +11,7 @@ const CerrarVotar = () => {
       <br/>
       <div className='frame-votacion'>
         <text className='titulos-inicio'>Votación </text>
-        <MDBBtn onClick={()=>navigate('/')} rounded color='success' size='lg' style={{width:100}}> 
+        <MDBBtn onClick={()=>window.history.back()} rounded color='success' size='lg' style={{width:100}}> 
         <i className="fas fa-xmark" style={{size:50}}></i>
         </MDBBtn>
       </div>
