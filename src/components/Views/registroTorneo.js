@@ -32,9 +32,9 @@ const RegistroTorneo = () => {
               headers: {
                   'Content-Type': 'application/json'
               }
-          }).then((response) => response.json())
+          }).then((result) => result.json())
           if (result.data != null) {;
-            console.log(result);
+            console.log(result.data);
             toast.success('Torneo registrado con éxito')
             navigate('/welcome')
           }else{
