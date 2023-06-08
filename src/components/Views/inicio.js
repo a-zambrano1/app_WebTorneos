@@ -36,7 +36,7 @@ const Inicio = () => {
         </div>
         <br/>
         <div>
-          <MDBBtn onClick={()=>navigate()} rounded color='success' size='lg'> Lista de Torneos</MDBBtn>
+          <MDBBtn onClick={() => navigate('/listaTodosTorneos')} rounded color='success' size='lg'> Lista de Torneos</MDBBtn>
         </div>
       </div>
       <div className='menu-opciones'>
