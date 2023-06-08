@@ -34,7 +34,6 @@ const ResultadoVotaciones = ({mc1, mc2, resultado1, resultado2}) => {
         <span>{resultado1}</span>
         <span>{resultado2}</span>
       </div>
-      <MDBBtn type='success' className='btn btn-success' onClick={() => calcularResultados()}>Obtener Resultados</MDBBtn>
       <Modal
       show={open}
       onHide={() => setOpen(false)}
