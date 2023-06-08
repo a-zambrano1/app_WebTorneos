@@ -20,17 +20,19 @@ const Votacion = () => {
   const [listValuesMC2, setListValuesMC2] = useState([])
   const [numEntradas,setNumEntradas] = useState(0)
 
-  const handleSaveEntradas= (idMC, index, value) => {
+  const handleSaveEntradas= (idMC, index, value, result) => {
     if(idMC === 0){
       const list = [...listValuesMC1]
       list[index] = value
       setListValuesMC1(list)
-      setResultado1(resultado1+value)
+      setResultado1(resultado1+result)
+      console.log(resultado1)
     }else{
       const list = [...listValuesMC2]
       list[index] = value
       setListValuesMC2(list)
-      setResultado2(resultado2+value)
+      setResultado2(parseFloat(resultado2+result))
+      console.log(resultado2)
     }
   }
 
@@ -96,8 +98,8 @@ const Votacion = () => {
        <CambioFormato formato={formatoActual}/>
        <ResultadoVotaciones mc1={location.state.mc1} mc2={location.state.mc2} resultado1={resultado1} resultado2={resultado2} />
        <MDBBtn className='btn btn-secondary btn-rounded' onClick={()=>{
-        setResultado1(0)
-        setResultado2(0)
+        setResultado1(0.0)
+        setResultado2(0.0)
        }}
        src={imgReset}>Reset</MDBBtn>
     </div>
