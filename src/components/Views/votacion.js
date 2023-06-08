@@ -20,19 +20,17 @@ const Votacion = () => {
   const [listValuesMC2, setListValuesMC2] = useState([])
   const [numEntradas, setNumEntradas] = useState(0)
 
-  const handleSaveEntradas = (idMC, index, value, result) => {
+  const handleSaveEntradas = (idMC, index, value) => {
     if (idMC === 0) {
       const list = [...listValuesMC1]
       list[index] = value
       setListValuesMC1(list)
-      setResultado1(resultado1 + result)
-      console.log(resultado1)
+      setResultado1(resultado1+value)
     } else {
       const list = [...listValuesMC2]
       list[index] = value
       setListValuesMC2(list)
-      setResultado2(parseFloat(resultado2 + result))
-      console.log(resultado2)
+      setResultado2(resultado2+value)
     }
   }
 
@@ -43,7 +41,6 @@ const Votacion = () => {
   const location = useLocation();
 
   function CambioFormato(param) {
-    console.log(param.formato)
     switch (param.formato) {
       case 0:
         return (<Votacion4x4 mc1={location.state.mc1} mc2={location.state.mc2} onSaveEntradas={handleSaveEntradas}
@@ -64,6 +61,7 @@ const Votacion = () => {
         return (<div>Componente vacío</div>)
     }
   }
+
   useEffect(() => {
     let lista = []
     for (let i = 0; i < numEntradas; i++) {
@@ -97,11 +95,11 @@ const Votacion = () => {
         </div>
         <CambioFormato formato={formatoActual} />
         <ResultadoVotaciones mc1={location.state.mc1} mc2={location.state.mc2} resultado1={resultado1} resultado2={resultado2} />
-        <MDBBtn className='btn btn-secondary btn-rounded' onClick={() => {
+        <MDBBtn src={imgReset} className='btn btn-secondary btn-rounded' onClick={() => {
           setResultado1(0.0)
           setResultado2(0.0)
         }}
-          src={imgReset}>Reset</MDBBtn>
+          >Reset</MDBBtn>
       </div>
       <br />
     </div>

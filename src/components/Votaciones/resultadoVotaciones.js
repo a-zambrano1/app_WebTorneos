@@ -4,37 +4,29 @@ import { toast } from 'react-toastify'
 import { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import { Button } from '@mui/material'
+import { useEffect } from 'react'
 
 
 const ResultadoVotaciones = ({mc1, mc2, resultado1, resultado2}) => {
   
-  const [open, setOpen] = React.useState(false);
-  const [resultado, setResultado] = useState("");
+  const [open, setOpen] = useState(false);
+  const [resultadoFinal, setResultadoFinal] = useState('');
 
   const calcularResultados = () => {
     if(resultado1 === 0 && resultado2 === 0){
-      setResultado("No hay votos")
+      setResultadoFinal("No hay votos")
       setOpen(true)
     }else if(resultado1 - resultado2 > 1.5){
-      setResultado(mc1)
+      setResultadoFinal(mc1)
       setOpen(true)
     }else if(resultado2 - resultado1 > 1.5){
-      setResultado(mc2)
+      setResultadoFinal(mc2)
       setOpen(true)
     }else{
-      setResultado("Replica")
+      setResultadoFinal("Replica")
       setOpen(true)
     }
   }
-
-  const guardar = () => {
-    if(resultado1 === 0 && resultado2 === 0){
-      toast.success('Guardado con exito')
-    }else{
-      toast.error('Error al guardar')
-    }
-  }
-  
   return (
     <div >
       <span className='titulo-resultados'>RESULTADOS</span>
@@ -42,7 +34,6 @@ const ResultadoVotaciones = ({mc1, mc2, resultado1, resultado2}) => {
         <span>{resultado1}</span>
         <span>{resultado2}</span>
       </div>
-      <MDBBtn type='success' className='btn btn-success' onClick={() => calcularResultados()}>Obtener Resultados</MDBBtn>
       <Modal
       show={open}
       onHide={() => setOpen(false)}
@@ -56,7 +47,7 @@ const ResultadoVotaciones = ({mc1, mc2, resultado1, resultado2}) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <span>{resultado}</span>
+        <span>{resultadoFinal}</span>
       </Modal.Body>
       <Modal.Footer>
           <br></br>
