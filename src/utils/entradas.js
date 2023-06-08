@@ -14,9 +14,9 @@ const Entrada4x4 = ({mc, onSaveEntradas, listValuesMC}) => {
       {listValuesMC.map((valor,index) => {
         return(
         <div key={index} className='entrada'>    
-          <MDBBtn onClick={() => changeValor(valor-0.5,index)} className="btn btn-outline-secondary btn-rounded">-</MDBBtn>
+          <MDBBtn onClick={() => changeValor(valor-0.5,index)} color className="btn btn-outline-secondary btn-rounded">-</MDBBtn>
           <span>{valor}</span>
-          <MDBBtn onClick={() => changeValor(valor+0.5,index)} className="btn btn-outline-secondary btn-rounded">+</MDBBtn>
+          <MDBBtn onClick={() => changeValor(valor+0.5,index)} color className="btn btn-outline-secondary btn-rounded">+</MDBBtn>
       </div>
       )})}
     </div>

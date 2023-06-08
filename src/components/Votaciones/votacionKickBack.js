@@ -28,7 +28,6 @@ const handleChangeEntradas = (idMC, index, value) => {
         <MDBBtn className='btn btn-success' onClick={renderEntrada}>Iniciar</MDBBtn>
       </div>
       <div>
-        <span className='titulo-kickback'>IDA</span>
         <div className='separacion-kickback subtitulo-kickback seccion-ida'>
           <div className='separacion-entradas'>
             <span>Pregunta</span>
@@ -43,7 +42,7 @@ const handleChangeEntradas = (idMC, index, value) => {
             
           </div>
       </div>
-      <div>
+      {/* <div>
         <span className='titulo-kickback'>VUELTA</span>
         <div className='separacion-kickback subtitulo-kickback seccion-vuelta'>
         <div className='separacion-entradas'>
@@ -55,7 +54,7 @@ const handleChangeEntradas = (idMC, index, value) => {
             <Entrada4x4 mc={1} onSaveEntradas={handleChangeEntradas} listValuesMC={listValuesMC2}/>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

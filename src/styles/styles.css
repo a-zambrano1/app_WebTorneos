@@ -371,6 +371,7 @@ select{
     border-radius: 28px;
     justify-content: space-between;
     align-items: center;
+    margin: 20px;
 }
 
 .titulo-kickback{
