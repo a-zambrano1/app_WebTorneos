@@ -7,28 +7,28 @@ import { getAuth} from 'firebase/auth';
 import { set } from 'firebase/database';
 
 
-
-
 const Welcome = () => {
     const navigate = useNavigate();
     const [aka, setAka] = useState('');
-    const auth = getAuth();
-    const email_admin = auth.currentUser.email;
+    
+
 
     useEffect(() => {
+        const auth = getAuth();
         if (!auth.currentUser) {
+            console.log(auth)
             navigate('/login');
         }else{
+            console.log("currentuser",auth.currentUser)
             setAka(aka.toString());
+            TorneoGet(auth.currentUser.email);
         }
     }, [])
 
-    const  TorneoGet = async () =>{
-        console.log("Trayendo usuarios de la BD...")
-        console.log(email_admin)
+    const  TorneoGet = async (email) =>{
         try {
           let result = await fetch(
-            'http://localhost:5000/api/usuarios/busqueda/' + email_admin, {
+            'http://localhost:5000/api/usuarios/busqueda/' + email, {
                 method: "get",
                 headers: {
                     'Content-Type': 'application/json'
@@ -48,10 +48,7 @@ const Welcome = () => {
         }
       }
 
-      useEffect((e) => {
-        TorneoGet(e);
-        aka.toString();
-        }, [])
+
 
   return (
     <div className='recuadro2 debug'>

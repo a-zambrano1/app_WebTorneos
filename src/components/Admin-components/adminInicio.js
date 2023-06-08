@@ -15,7 +15,6 @@ const AdminInicio = ({id_torneo}) => {
     <div className='recuadro2 debug'>
         <HeaderAdminTorneo/>
         <NavbarAdmin></NavbarAdmin>
-        <span>{idTorneo}</span>
         <div className='titulo-torneo' style={{backgroundImage: `url(${imgBatalla})`,
         backgroundSize: "cover"
       }}>

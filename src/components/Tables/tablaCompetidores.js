@@ -15,7 +15,7 @@ const TablaCompetidores = () => {
   const email_admin = auth.currentUser.email;
   const nameTournament = 'resiliencia'   
   const [nuevoCompetidor, setNuevoCompetidor] = useState('')
-  const [limiteParticipantes, setLimiteParticipantes] = useState(false)
+  const [limiteParticipantes,setLimiteParticipantes] = useState(0)
   const {idTorneo} = useIdTorneoStore()
 
   const [open, setOpen] = useState(false)
@@ -31,12 +31,10 @@ const TablaCompetidores = () => {
             },
           }).then((result) => result.json())
           if (result != null) {
-            console.log(result)
-            setCompetidores(result.data.participantes)
             setLimiteParticipantes(result.data.numero_participantes)
-            console.log(result.data.participantes)
+            setCompetidores(result.data.participantes)
           } else {
-            console.log('warning', 'Error, no se encuentra el torneo.')
+            toast.error('Error, no se encuentra el torneo.')
           }
         } catch (error) {
           return error
@@ -45,7 +43,6 @@ const TablaCompetidores = () => {
 
       useEffect(() => {
         getParticipantes();
-        console.log(idTorneo)
       }, [])
 
 
@@ -76,7 +73,6 @@ const TablaCompetidores = () => {
   return (
     <div className='recuadro2 debug'>
       <a className='regresar' onClick={()=>window.history.back() }>« Regresar</a>
-      <span>{idTorneo}</span>
       <MDBTable stripped hover align='middle'>
         <MDBTableHead>
           <tr>
@@ -97,7 +93,6 @@ const TablaCompetidores = () => {
           ))}
         </MDBTableBody>
       </MDBTable>
-      <MDBBtn className='buton-opciones-torneo btn-success success' rounded size='sm' >Guardar</MDBBtn>
       <Modal
       show={open}
       onHide={() => setOpen(false)}

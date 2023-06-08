@@ -6,32 +6,30 @@ import { getAuth } from 'firebase/auth';
 import Modal from 'react-bootstrap/Modal'
 import { Button } from '@mui/material'
 import { toast } from 'react-toastify';
+import { useIdTorneoStore } from '../../utils/EstadosGlobales'
 
 
 const TablaTorneos = () => {
   const [jueces, setJueces] = useState([])
   const [open, setOpen] = useState(false)
   const [nuevoJuez, setNuevoJuez] = useState('')
-  const [newRow, setNewRow] = useState([{
-    imagen:'',
-    aka: '',
-  }])
   const [limiteJueces, setLimiteJueces] = useState(5)
+  const {idTorneo} = useIdTorneoStore()
 
 
 
 
   const getJueces = async() => {
     try {
-      let result = await fetch('http://localhost:5000/api/torneos', {
+      let result = await fetch('http://localhost:5000/api/torneos/busqueda/jueces/' + idTorneo , {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
       }).then((response) => response.json())
       if (result != null) {
-        console.log(result)
-        setJueces(result[0].jueces)
+        setLimiteJueces(result.data.numero_jueces)
+        setJueces(result.data.jueces)
       } else {
         console.log('warning', 'Error, no se encuentra el torneo.')
       }
@@ -45,15 +43,18 @@ const TablaTorneos = () => {
   
   const guardarNuevoJuez = async() => {
     try {
-      if(newRow.length <= limiteJueces){
-        setNewRow([...newRow, {
-          imagen:<img src={imgJuez}></img>,
-          aka: nuevoJuez
-        }])
+      let result = await fetch('http://localhost:5000/api/torneos/jueces/' + idTorneo + '/' + nuevoJuez, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).then((result) => result.json())
+      if (result != null) {
+        toast.success('Datos Cargados')
+        await getJueces()
         setOpen(false)
-        toast.success('Nuevo juez agregado')
       }else{
-        toast.warning('Error, se ha alcanzado el limite de jueces')
+        toast.warn('Error al guardar el nuevo juez')
       }
     } catch (error) {
       toast.error('Error al guardar el nuevo juez')
@@ -68,7 +69,7 @@ const TablaTorneos = () => {
       <MDBTableHead>
         <tr>
           <th>
-            <MDBBtn onClick={() => setOpen(true)}color='success' rounded size='sm'>
+            <MDBBtn disabled={jueces.length >= limiteJueces} onClick={() => setOpen(true)}color='success' rounded size='sm'>
               Agregar Juez
             </MDBBtn>
           </th>
@@ -76,15 +77,14 @@ const TablaTorneos = () => {
         </tr>
       </MDBTableHead>
       <MDBTableBody>
-        {newRow.map((row) => (
+        {jueces.map((juez) => (
           <tr>
-            <td>{row.imagen}</td>
-            <td>{row.aka}</td>
+            <td><img src={imgJuez}></img></td>
+            <td>{juez.aka_juez}</td>
           </tr>
         ))}
       </MDBTableBody>
     </MDBTable>
-    <MDBBtn className='buton-opciones-torneo btn-success success' rounded size='sm' >Guardar</MDBBtn>
     <Modal
       show={open}
       onHide={() => setOpen(false)}
