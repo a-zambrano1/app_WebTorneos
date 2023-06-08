@@ -10,34 +10,30 @@ import { useIdTorneoStore } from '../../utils/EstadosGlobales'
 
 
 
-
 const TablaCompetidores = () => {
   const auth = getAuth();
   const email_admin = auth.currentUser.email;
   const nameTournament = 'resiliencia'   
   const [nuevoCompetidor, setNuevoCompetidor] = useState('')
-  const [newRow, setNewRow] = useState([{
-    imagen:'',
-    aka: '',
-    puntaje: '',
-  }])
-  const [limiteParticipantes, setLimiteParticipantes] = useState(5)
+  const limiteParticipantes = 5
   const {idTorneo} = useIdTorneoStore()
 
   const [open, setOpen] = useState(false)
 
       const [competidores, setCompetidores] = useState([])
-      const getJueces = async() => {
+
+      const getParticipantes = async() => {
         try {
-          let result = await fetch('http://localhost:5000/api/torneos/busqueda/' + email_admin + '/' + nameTournament, {
+          let result = await fetch('http://localhost:5000/api/torneos/busqueda/participantes/' + idTorneo, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
             },
-          }).then((response) => response.json())
+          }).then((result) => result.json())
           if (result != null) {
             console.log(result)
-            setCompetidores(result[0].participantes)
+            setCompetidores(result.data.participantes)
+            console.log(result.data.participantes)
           } else {
             console.log('warning', 'Error, no se encuentra el torneo.')
           }
@@ -45,27 +41,32 @@ const TablaCompetidores = () => {
           return error
         }}
     
+
       useEffect(() => {
-        getJueces();
+        getParticipantes();
         console.log(idTorneo)
       }, [])
 
 
-      const guardarNuevoCompetidor = async() => {
+
+
+      const guardarNuevoCompetidor = async (nuevoCompetidor) => {
         try {
-          if(newRow.length <= limiteParticipantes){
-            setNewRow([...newRow, {
-              imagen:<img src={imgJuez}></img>,
-              aka: nuevoCompetidor,
-              puntaje: 0,
-            }])
+          let result = await fetch('http://localhost:5000/api/torneos/participantes/' +idTorneo+'/'+nuevoCompetidor, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }).then((result) => result.json())
+          if (result != null) {
+            toast.success("Datos Cargados")
+            await getParticipantes()
             setOpen(false)
-            toast.success('Nuevo competidor agregado')
-          }else{
-            toast.warning('Error, se ha alcanzado el limite de participantes')
+          } else {
+            toast.warn('Error, no se guardó el competidor.')
           }
         } catch (error) {
-          toast.error('Error al guardar el nuevo competidor')
+          return error
         }
       }
 
@@ -79,20 +80,18 @@ const TablaCompetidores = () => {
         <MDBTableHead>
           <tr>
           <th>
-              <MDBBtn color='success' onClick={() => setOpen(true)} rounded size='sm'>
+              <MDBBtn disabled={competidores.length >= limiteParticipantes} color='success' onClick={() => setOpen(true)} rounded size='sm'>
                 Agregar Participante
               </MDBBtn>
             </th>
           <th scope='col'>A.K.A del Competidor</th>
-          <th>Puntaje</th>   
           </tr>
         </MDBTableHead>
         <MDBTableBody>  
-        {newRow.map((row) => (
+        {competidores.map((row) => (
             <tr>
-              <td>{row.imagen}</td>
-              <td>{row.aka}</td>
-              <td>{row.puntaje}</td>
+              <td><img src={imgJuez}></img></td>
+              <td>{row.aka_participante}</td>
             </tr>
           ))}
         </MDBTableBody>
@@ -123,7 +122,7 @@ const TablaCompetidores = () => {
           <br></br>
           <Button
             
-            onClick={() => guardarNuevoCompetidor()}
+            onClick={() => guardarNuevoCompetidor(nuevoCompetidor)}
           >
             Guardar
           </Button>
