@@ -7,11 +7,7 @@ const AdminInformacion = () => {
         <HeaderAdminTorneo/>
         <NavbarAdmin/>
         <div>
-            información más actual
-        </div>
-        <div>
-            Descripción de la Liga
-            @DescripciónTraidaDeLaBD
+            información actual
         </div>
     </div>
   )
