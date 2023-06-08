@@ -22,8 +22,14 @@ const Votacion = () => {
 
   const handleSaveEntradas= (idMC, index, value) => {
     if(idMC === 0){
+      const list = [...listValuesMC1]
+      list[index] = value
+      setListValuesMC1(list)
       setResultado1(resultado1+value)
     }else{
+      const list = [...listValuesMC2]
+      list[index] = value
+      setListValuesMC2(list)
       setResultado2(resultado2+value)
     }
   }
