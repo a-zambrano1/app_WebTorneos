@@ -11,13 +11,11 @@ const ListaTodosTorneos = () => {
  
  const navigate = useNavigate();
   
- const auth = getAuth();
- const email_admin = auth.currentUser.email;
+
  const [torneos, setTorneos] = useState([]);
 
  const  TorneoGet = async () =>{
   console.log("Trayendo torneos de la BD...")
-  console.log(email_admin)
   try {
     let result = await fetch(
       'http://localhost:5000/api/torneos/',{
@@ -48,7 +46,7 @@ const ListaTodosTorneos = () => {
           <span className='raprumble2'>Torneos</span>
         </div>
         {torneos.map((torneo,index) => <CardTorneo key={index} nombreTorneo={torneo.nombre_torneo} id_torneo={torneo._id} />)}
-        <MDBBtn onClick={()=>navigate('/')} rounded color='success' size='lg'> Atrás</MDBBtn>
+        <MDBBtn onClick={()=>window.history.back()} rounded color='success' size='lg'> Atrás</MDBBtn>
         <br/>
     </div>
   )

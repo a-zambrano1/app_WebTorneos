@@ -8,7 +8,7 @@ const HeaderAdminTorneo = () => {
   
   return (
     <div className='header-admin-torneos'>
-        <a className='regresar' onClick={()=>navigate('/welcome')}>« Regresar</a>
+        <a className='regresar' onClick={()=>window.history.back()}>« Regresar</a>
         <MDBBtn onClick={()=>navigate('/login')} rounded color='success' size='lg'> Cerrar Sesión</MDBBtn>
     </div>
   )
