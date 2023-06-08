@@ -15,7 +15,7 @@ const TablaCompetidores = () => {
   const email_admin = auth.currentUser.email;
   const nameTournament = 'resiliencia'   
   const [nuevoCompetidor, setNuevoCompetidor] = useState('')
-  const limiteParticipantes = 5
+  const [limiteParticipantes, setLimiteParticipantes] = useState(false)
   const {idTorneo} = useIdTorneoStore()
 
   const [open, setOpen] = useState(false)
@@ -33,6 +33,7 @@ const TablaCompetidores = () => {
           if (result != null) {
             console.log(result)
             setCompetidores(result.data.participantes)
+            setLimiteParticipantes(result.data.numero_participantes)
             console.log(result.data.participantes)
           } else {
             console.log('warning', 'Error, no se encuentra el torneo.')
