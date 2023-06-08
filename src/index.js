@@ -21,12 +21,12 @@ root.render(
       draggable={false}
       closeOnClick
       pauseOnHover/>
-    <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-      <div className='pag-bienvenida'><link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Outfit"/>
-        <App />
-      </div>
-    </FirebaseAppProvider>
+          <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+            <div className='pag-bienvenida'><link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Outfit"/>
+          <App />
+        </div>
+      </FirebaseAppProvider> 
   </React.StrictMode>
 );
 

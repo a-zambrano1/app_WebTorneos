@@ -3,9 +3,10 @@ import torneo_logo from '../media/torneo_logo.png'
 import borrar from '../media/borrar.png'
 import cerrar_sesion from '../media/cerrar-sesion.png'
 import { useNavigate } from 'react-router-dom'
+import { useIdTorneoStore } from './EstadosGlobales'
 
 const CardTorneo = ({nombreTorneo, id_torneo}) => {
-  
+  const {setIdTorneo} = useIdTorneoStore()
   const navigate = useNavigate();
   
   return (
@@ -14,7 +15,8 @@ const CardTorneo = ({nombreTorneo, id_torneo}) => {
         <p style={{color:'white'}}>{nombreTorneo}</p>
         <div>
             <img src={borrar} width={30} />
-            <img src={cerrar_sesion} width={30} onClick={() => navigate('/adminInicio' , {state:{id_torneo:id_torneo}})}/>
+            <img src={cerrar_sesion} width={30} onClick={() => {navigate('/adminInicio')
+          setIdTorneo(id_torneo)}}/>
         </div>
             
     </div>

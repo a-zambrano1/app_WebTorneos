@@ -4,13 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { getAuth } from "firebase/auth";
 import { MDBBtn } from 'mdb-react-ui-kit';
 import { useState } from 'react';
-import { set } from 'firebase/database';
+import { useIdTorneoStore } from '../../utils/EstadosGlobales';
 import { toast } from 'react-toastify';
 
 const ListaTorneos = () => {
  
  const navigate = useNavigate();
-  
+ const {setIdTorneo} = useIdTorneoStore()
+ 
  const auth = getAuth();
  const email_admin = auth.currentUser.email;
  const [torneos, setTorneos] = useState([]);

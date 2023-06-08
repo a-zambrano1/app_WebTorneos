@@ -6,6 +6,10 @@ import { getAuth } from 'firebase/auth';
 import Modal from 'react-bootstrap/Modal'
 import { Button } from '@mui/material'
 import { toast } from 'react-toastify';
+import { useIdTorneoStore } from '../../utils/EstadosGlobales'
+
+
+
 
 const TablaCompetidores = () => {
   const auth = getAuth();
@@ -18,8 +22,10 @@ const TablaCompetidores = () => {
     puntaje: '',
   }])
   const [limiteParticipantes, setLimiteParticipantes] = useState(5)
+  const {idTorneo} = useIdTorneoStore()
 
   const [open, setOpen] = useState(false)
+
       const [competidores, setCompetidores] = useState([])
       const getJueces = async() => {
         try {
@@ -40,7 +46,8 @@ const TablaCompetidores = () => {
         }}
     
       useEffect(() => {
-        getJueces()
+        getJueces();
+        console.log(idTorneo)
       }, [])
 
 
@@ -67,6 +74,7 @@ const TablaCompetidores = () => {
   return (
     <div className='recuadro2 debug'>
       <a className='regresar' onClick={()=>window.history.back() }>« Regresar</a>
+      <span>{idTorneo}</span>
       <MDBTable stripped hover align='middle'>
         <MDBTableHead>
           <tr>
@@ -79,7 +87,7 @@ const TablaCompetidores = () => {
           <th>Puntaje</th>   
           </tr>
         </MDBTableHead>
-        <MDBTableBody>
+        <MDBTableBody>  
         {newRow.map((row) => (
             <tr>
               <td>{row.imagen}</td>
